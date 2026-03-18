@@ -81,7 +81,7 @@ function parseStoryContent(content: string, interactive: boolean): React.ReactNo
         const { table, endIdx } = tableResult;
         result.push(
           <div key={`table-${i}`} className="my-4 overflow-x-auto">
-            <table className="w-full text-sm border-collapse table-fixed">
+            <table className="w-full text-sm border-collapse table-fixed min-w-[600px]">
               <thead>
                 <tr className="border-b-2 border-primary/20">
                   {table.headers.map((h, hi) => (

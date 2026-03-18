@@ -9,9 +9,9 @@ const notoSans = Noto_Sans_SC({
 });
 
 export const metadata: Metadata = {
-  title: "词忆 VocabStory - AI驱动的GRE词汇记忆工具",
+  title: "词忆 VocabStory - AI驱动的词汇记忆工具",
   description:
-    "用AI生成高情绪语境故事，把GRE单词转化为难忘的记忆。支持宫斗、影视、悬疑等多种风格。",
+    "用AI生成高情绪语境故事，把单词转化为难忘的记忆。支持宫斗、影视、悬疑等多种风格。",
 };
 
 export default function RootLayout({
