@@ -41,15 +41,18 @@ function WordRevealRow({ word }: { word: WordEntry }) {
 }
 
 /* ===== Match Game Component ===== */
+function shuffleArray<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function MatchGame({ words, onFinish }: { words: WordEntry[]; onFinish: () => void }) {
-  const shuffledWords = useMemo(
-    () => [...words].sort(() => Math.random() - 0.5),
-    [words]
-  );
-  const shuffledMeanings = useMemo(
-    () => [...words].sort(() => Math.random() - 0.5),
-    [words]
-  );
+  const [shuffledWords] = useState(() => shuffleArray(words));
+  const [shuffledMeanings] = useState(() => shuffleArray(words));
 
   const [selectedWord, setSelectedWord] = useState<string | null>(null);
   const [matched, setMatched] = useState<Set<string>>(new Set());

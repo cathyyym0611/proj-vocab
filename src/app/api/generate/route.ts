@@ -63,7 +63,7 @@ export async function POST(request: Request) {
   // Server-side rate limiting by IP
   const headersList = await headers();
   const ip = getClientIP(headersList);
-  const { allowed, remaining } = consumeRateLimit(ip);
+  const { allowed, remaining } = await consumeRateLimit(ip);
 
   if (!allowed) {
     return new Response(

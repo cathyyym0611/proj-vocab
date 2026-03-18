@@ -15,7 +15,7 @@ function getClientIP(headersList: Headers): string {
 export async function GET() {
   const headersList = await headers();
   const ip = getClientIP(headersList);
-  const { remaining, limit } = getRemainingCount(ip);
+  const { remaining, limit } = await getRemainingCount(ip);
 
   return Response.json({ remaining, limit });
 }
