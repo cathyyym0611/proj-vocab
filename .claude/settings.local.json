@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "WebSearch",
+      "Read(//Users/maoyingyu/Desktop/**)",
+      "Bash(npx create-next-app@latest proj-vocab --typescript --tailwind --app --src-dir --eslint --no-import-alias --use-npm)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind --app --src-dir --eslint --no-import-alias --use-npm)",
+      "Bash(npx create-next-app@latest proj-vocab-temp --typescript --tailwind --app --src-dir --eslint --no-import-alias --use-npm)",
+      "Bash(npm install:*)",
+      "Bash(npx next:*)",
+      "Bash(node -e \"require\\(''next/dist/server/require-hook''\\)\")",
+      "Bash(node_modules/.bin/next build:*)",
+      "Bash(node node_modules/next/dist/bin/next build)",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(wc -l /Users/maoyingyu/Desktop/proj-vocab/src/data/*.json)",
+      "Bash(node -e \"const t=require\\(''./src/data/toefl-words.json''\\); const i=require\\(''./src/data/ielts-words.json''\\); const g=require\\(''./src/data/gre-words.json''\\); console.log\\(''TOEFL:'', t.length, ''IELTS:'', i.length, ''GRE:'', g.length\\)\")",
+      "Bash(node -e \"const g=require\\(''./src/data/gre-words.json''\\); const t=require\\(''./src/data/toefl-words.json''\\); const i=require\\(''./src/data/ielts-words.json''\\); console.log\\(''GRE:'', g.length, ''TOEFL:'', t.length, ''IELTS:'', i.length\\)\")",
+      "Bash(npm run:*)",
+      "Bash(npx tsc:*)",
+      "Bash(node -e \"require\\(''''./src/hooks/useDailyLimit.ts''''\\)\")"
+    ]
+  }
+}

@@ -1,0 +1,2274 @@
+[
+  {
+    "word": "abandon",
+    "meaningEn": "to give up completely; to desert",
+    "meaningZh": "放弃；抛弃",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "abstract",
+    "meaningEn": "existing in thought or as an idea; not concrete",
+    "meaningZh": "抽象的；摘要",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "accommodate",
+    "meaningEn": "to provide space or lodging for; to adapt to",
+    "meaningZh": "容纳；适应",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "accumulate",
+    "meaningEn": "to gather or pile up gradually",
+    "meaningZh": "积累；积聚",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "acknowledge",
+    "meaningEn": "to accept or admit the existence or truth of",
+    "meaningZh": "承认；确认",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "adapt",
+    "meaningEn": "to adjust to new conditions or environment",
+    "meaningZh": "适应；改编",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "adequate",
+    "meaningEn": "sufficient for a specific requirement",
+    "meaningZh": "足够的；适当的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "advocate",
+    "meaningEn": "to publicly support or recommend",
+    "meaningZh": "提倡；拥护",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "affect",
+    "meaningEn": "to have an influence on; to produce a change in",
+    "meaningZh": "影响；感染",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "aggregate",
+    "meaningEn": "a whole formed by combining several elements",
+    "meaningZh": "总计的；聚合",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "allocate",
+    "meaningEn": "to distribute resources for a particular purpose",
+    "meaningZh": "分配；拨出",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "alter",
+    "meaningEn": "to change or modify",
+    "meaningZh": "改变；修改",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "ambiguous",
+    "meaningEn": "open to more than one interpretation; unclear",
+    "meaningZh": "模棱两可的；含糊的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "analogy",
+    "meaningEn": "a comparison between two things for explanation",
+    "meaningZh": "类比；类推",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "anticipate",
+    "meaningEn": "to expect or predict something",
+    "meaningZh": "预期；预料",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "apparent",
+    "meaningEn": "clearly visible or understood; obvious",
+    "meaningZh": "明显的；表面上的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "approach",
+    "meaningEn": "a way of dealing with something; to come near",
+    "meaningZh": "方法；接近",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "approximate",
+    "meaningEn": "close to the actual but not completely accurate",
+    "meaningZh": "大约的；近似的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "arbitrary",
+    "meaningEn": "based on random choice rather than reason",
+    "meaningZh": "任意的；武断的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "assert",
+    "meaningEn": "to state a fact or belief confidently",
+    "meaningZh": "断言；主张",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "assess",
+    "meaningEn": "to evaluate or estimate the nature or value of",
+    "meaningZh": "评估；评定",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "assume",
+    "meaningEn": "to suppose to be true without proof",
+    "meaningZh": "假定；承担",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "attribute",
+    "meaningEn": "to regard as being caused by; a quality or feature",
+    "meaningZh": "归因于；属性",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "authority",
+    "meaningEn": "the power or right to give orders or make decisions",
+    "meaningZh": "权威；当局",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "bias",
+    "meaningEn": "prejudice in favor of or against something",
+    "meaningZh": "偏见；偏差",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "cease",
+    "meaningEn": "to come or bring to an end; to stop",
+    "meaningZh": "停止；终止",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "challenge",
+    "meaningEn": "a task or situation that tests someone's abilities",
+    "meaningZh": "挑战；质疑",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "cite",
+    "meaningEn": "to quote as evidence or justification",
+    "meaningZh": "引用；举例",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "coherent",
+    "meaningEn": "logical and consistent; forming a unified whole",
+    "meaningZh": "连贯的；一致的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "coincide",
+    "meaningEn": "to occur at the same time or place",
+    "meaningZh": "巧合；一致",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "collapse",
+    "meaningEn": "to fall down or give way suddenly",
+    "meaningZh": "倒塌；崩溃",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "compensate",
+    "meaningEn": "to make up for something; to pay for loss",
+    "meaningZh": "补偿；弥补",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "component",
+    "meaningEn": "a part or element of a larger whole",
+    "meaningZh": "成分；组件",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "comprehensive",
+    "meaningEn": "complete and including everything necessary",
+    "meaningZh": "全面的；综合的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "conceive",
+    "meaningEn": "to form an idea or plan in the mind",
+    "meaningZh": "构想；怀孕",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "conclude",
+    "meaningEn": "to bring to an end; to arrive at a judgment",
+    "meaningZh": "结束；得出结论",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "conflict",
+    "meaningEn": "a serious disagreement or clash",
+    "meaningZh": "冲突；矛盾",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "consent",
+    "meaningEn": "permission or agreement to do something",
+    "meaningZh": "同意；许可",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "consequence",
+    "meaningEn": "a result or effect of an action or condition",
+    "meaningZh": "结果；后果",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "considerable",
+    "meaningEn": "notably large in size, amount, or extent",
+    "meaningZh": "相当大的；重要的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "constitute",
+    "meaningEn": "to be a part of a whole; to form or compose",
+    "meaningZh": "构成；组成",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "constrain",
+    "meaningEn": "to restrict or limit",
+    "meaningZh": "约束；限制",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "contemporary",
+    "meaningEn": "living or occurring at the same time; modern",
+    "meaningZh": "当代的；同时代的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "contradict",
+    "meaningEn": "to deny the truth of a statement; to be inconsistent with",
+    "meaningZh": "反驳；矛盾",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "controversy",
+    "meaningEn": "prolonged public disagreement or heated discussion",
+    "meaningZh": "争论；争议",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "contribute",
+    "meaningEn": "to give something in order to help achieve a goal",
+    "meaningZh": "贡献；有助于",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "conventional",
+    "meaningEn": "based on or in accordance with accepted standards",
+    "meaningZh": "传统的；常规的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "convert",
+    "meaningEn": "to change in form, character, or function",
+    "meaningZh": "转换；转变",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "cooperate",
+    "meaningEn": "to work jointly with others toward a shared goal",
+    "meaningZh": "合作；协作",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "correspond",
+    "meaningEn": "to have a close similarity; to match",
+    "meaningZh": "对应；通信",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "criteria",
+    "meaningEn": "standards by which something is judged or decided",
+    "meaningZh": "标准；准则",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "crucial",
+    "meaningEn": "of great importance; critical",
+    "meaningZh": "关键的；至关重要的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "decline",
+    "meaningEn": "to decrease in quantity or importance; to refuse",
+    "meaningZh": "下降；拒绝",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "deduce",
+    "meaningEn": "to arrive at a conclusion by reasoning",
+    "meaningZh": "推断；演绎",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "demonstrate",
+    "meaningEn": "to clearly show the existence or truth of something",
+    "meaningZh": "证明；示范",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "denote",
+    "meaningEn": "to be a sign of; to indicate",
+    "meaningZh": "表示；意味着",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "derive",
+    "meaningEn": "to obtain something from a specified source",
+    "meaningZh": "源于；得到",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "detect",
+    "meaningEn": "to discover or identify the presence of something",
+    "meaningZh": "检测；发现",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "deviate",
+    "meaningEn": "to depart from an established course or norm",
+    "meaningZh": "偏离；背离",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "devote",
+    "meaningEn": "to give time or resources to a purpose",
+    "meaningZh": "致力于；奉献",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "differentiate",
+    "meaningEn": "to recognize or identify differences between things",
+    "meaningZh": "区分；区别",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "diminish",
+    "meaningEn": "to make or become less; to reduce",
+    "meaningZh": "减少；缩小",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "discrete",
+    "meaningEn": "individually separate and distinct",
+    "meaningZh": "离散的；不连续的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "discriminate",
+    "meaningEn": "to recognize a distinction; to treat unfairly",
+    "meaningZh": "区别对待；歧视",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "displace",
+    "meaningEn": "to move something from its proper place",
+    "meaningZh": "取代；置换",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "distinct",
+    "meaningEn": "recognizably different or separate",
+    "meaningZh": "明显的；独特的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "distort",
+    "meaningEn": "to pull or twist out of shape; to misrepresent",
+    "meaningZh": "扭曲；歪曲",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "distribute",
+    "meaningEn": "to give shares of something; to spread over an area",
+    "meaningZh": "分配；分布",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "diverse",
+    "meaningEn": "showing a great deal of variety; different",
+    "meaningZh": "多样的；不同的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "domain",
+    "meaningEn": "an area of knowledge, activity, or control",
+    "meaningZh": "领域；范围",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "domestic",
+    "meaningEn": "relating to one's own country; relating to the home",
+    "meaningZh": "国内的；家庭的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "dominant",
+    "meaningEn": "most important, powerful, or influential",
+    "meaningZh": "占主导地位的；显性的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "duration",
+    "meaningEn": "the time during which something continues",
+    "meaningZh": "持续时间；期间",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "dynamic",
+    "meaningEn": "characterized by constant change or activity",
+    "meaningZh": "动态的；充满活力的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "eliminate",
+    "meaningEn": "to completely remove or get rid of",
+    "meaningZh": "消除；淘汰",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "emerge",
+    "meaningEn": "to come into view or existence; to become known",
+    "meaningZh": "出现；浮现",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "emphasis",
+    "meaningEn": "special importance or significance given to something",
+    "meaningZh": "强调；重点",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "empirical",
+    "meaningEn": "based on observation or experience rather than theory",
+    "meaningZh": "经验的；实证的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "enable",
+    "meaningEn": "to make possible or provide the means for",
+    "meaningZh": "使能够；使可能",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "encounter",
+    "meaningEn": "to unexpectedly meet or experience",
+    "meaningZh": "遭遇；邂逅",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "enormous",
+    "meaningEn": "very large in size, quantity, or extent",
+    "meaningZh": "巨大的；庞大的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "ensure",
+    "meaningEn": "to make certain that something will happen",
+    "meaningZh": "确保；保证",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "environment",
+    "meaningEn": "the surroundings or conditions in which one operates",
+    "meaningZh": "环境；外界",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "equivalent",
+    "meaningEn": "equal in value, function, or meaning",
+    "meaningZh": "等同的；等价物",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "erode",
+    "meaningEn": "to gradually wear away or destroy",
+    "meaningZh": "侵蚀；腐蚀",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "establish",
+    "meaningEn": "to set up on a permanent basis; to found",
+    "meaningZh": "建立；确立",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "evaluate",
+    "meaningEn": "to judge or determine the value or quality of",
+    "meaningZh": "评价；评估",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "evident",
+    "meaningEn": "plain or obvious; clearly seen or understood",
+    "meaningZh": "明显的；明白的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "evolve",
+    "meaningEn": "to develop gradually over time",
+    "meaningZh": "进化；演变",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "exceed",
+    "meaningEn": "to go beyond a limit or surpass",
+    "meaningZh": "超过；超越",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "exclude",
+    "meaningEn": "to deny access to; to leave out",
+    "meaningZh": "排除；排斥",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "exhibit",
+    "meaningEn": "to publicly display; to show a quality or feeling",
+    "meaningZh": "展览；表现",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "expand",
+    "meaningEn": "to increase in size, number, or importance",
+    "meaningZh": "扩展；膨胀",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "explicit",
+    "meaningEn": "stated clearly and in detail, leaving no doubt",
+    "meaningZh": "明确的；清楚的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "exploit",
+    "meaningEn": "to make full use of; to use unfairly for profit",
+    "meaningZh": "利用；剥削",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "extract",
+    "meaningEn": "to remove or take out by effort or force",
+    "meaningZh": "提取；摘录",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "facilitate",
+    "meaningEn": "to make an action or process easier",
+    "meaningZh": "促进；使便利",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "factor",
+    "meaningEn": "a circumstance contributing to a result",
+    "meaningZh": "因素；要素",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "feature",
+    "meaningEn": "a distinctive attribute or aspect of something",
+    "meaningZh": "特征；特点",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "finite",
+    "meaningEn": "having limits or bounds; not infinite",
+    "meaningZh": "有限的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "fluctuate",
+    "meaningEn": "to rise and fall irregularly in amount",
+    "meaningZh": "波动；起伏",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "focus",
+    "meaningEn": "the center of interest or activity; to concentrate",
+    "meaningZh": "焦点；集中",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "formula",
+    "meaningEn": "a mathematical or scientific rule expressed in symbols",
+    "meaningZh": "公式；配方",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "foundation",
+    "meaningEn": "the basis on which something is built or established",
+    "meaningZh": "基础；基金会",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "framework",
+    "meaningEn": "a basic structure underlying a system or concept",
+    "meaningZh": "框架；结构",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "fundamental",
+    "meaningEn": "forming a necessary base or core; essential",
+    "meaningZh": "基本的；根本的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "generate",
+    "meaningEn": "to cause something to arise or come about",
+    "meaningZh": "产生；生成",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "globe",
+    "meaningEn": "the earth; a spherical representation of the earth",
+    "meaningZh": "地球；球体",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "guarantee",
+    "meaningEn": "a formal promise that something will happen",
+    "meaningZh": "保证；担保",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "hence",
+    "meaningEn": "as a consequence; for this reason",
+    "meaningZh": "因此；从此",
+    "partOfSpeech": "adv",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "hierarchy",
+    "meaningEn": "a system in which people are ranked above one another",
+    "meaningZh": "等级制度；层级",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "hypothesis",
+    "meaningEn": "a proposed explanation made as a starting point for investigation",
+    "meaningZh": "假说；假设",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "identical",
+    "meaningEn": "exactly alike; similar in every detail",
+    "meaningZh": "相同的；一模一样的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "identify",
+    "meaningEn": "to establish the identity of; to recognize",
+    "meaningZh": "识别；鉴定",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "ideology",
+    "meaningEn": "a system of ideas and ideals forming the basis of a theory",
+    "meaningZh": "意识形态；思想体系",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "illustrate",
+    "meaningEn": "to explain or make something clear by examples",
+    "meaningZh": "说明；阐明",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "impact",
+    "meaningEn": "a marked effect or influence",
+    "meaningZh": "影响；冲击",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "implement",
+    "meaningEn": "to put a decision or plan into effect",
+    "meaningZh": "实施；执行",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "implicit",
+    "meaningEn": "implied though not plainly expressed",
+    "meaningZh": "含蓄的；隐含的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "impose",
+    "meaningEn": "to force something to be accepted or put in place",
+    "meaningZh": "强加；征收",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "incentive",
+    "meaningEn": "something that motivates or encourages action",
+    "meaningZh": "激励；动机",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "incorporate",
+    "meaningEn": "to include as part of a whole",
+    "meaningZh": "合并；纳入",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "indicate",
+    "meaningEn": "to point out or show; to suggest",
+    "meaningZh": "表明；指出",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "individual",
+    "meaningEn": "a single human being; separate and distinct",
+    "meaningZh": "个人的；独特的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "inevitable",
+    "meaningEn": "certain to happen; unavoidable",
+    "meaningZh": "不可避免的；必然的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "infer",
+    "meaningEn": "to deduce or conclude from evidence and reasoning",
+    "meaningZh": "推断；推理",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "infrastructure",
+    "meaningEn": "the basic physical systems of a society or enterprise",
+    "meaningZh": "基础设施；基础建设",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "inherent",
+    "meaningEn": "existing as a natural and permanent quality",
+    "meaningZh": "固有的；内在的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "initial",
+    "meaningEn": "existing or occurring at the beginning",
+    "meaningZh": "最初的；开始的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "innovate",
+    "meaningEn": "to introduce new methods, ideas, or products",
+    "meaningZh": "创新；革新",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "insight",
+    "meaningEn": "a deep understanding of a person or thing",
+    "meaningZh": "洞察力；见解",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "integrate",
+    "meaningEn": "to combine parts into a unified whole",
+    "meaningZh": "整合；融合",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "integrity",
+    "meaningEn": "the quality of being honest and morally upright",
+    "meaningZh": "正直；完整性",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "intense",
+    "meaningEn": "of extreme force, degree, or strength",
+    "meaningZh": "强烈的；紧张的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "interact",
+    "meaningEn": "to act in a way that has an effect on another",
+    "meaningZh": "互动；相互作用",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "interpret",
+    "meaningEn": "to explain the meaning of something",
+    "meaningZh": "解释；口译",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "interval",
+    "meaningEn": "a space of time between two events",
+    "meaningZh": "间隔；间歇",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "intrinsic",
+    "meaningEn": "belonging naturally; essential",
+    "meaningZh": "内在的；本质的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "investigate",
+    "meaningEn": "to carry out a systematic inquiry or examination",
+    "meaningZh": "调查；研究",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "invoke",
+    "meaningEn": "to cite or appeal to as an authority",
+    "meaningZh": "援引；调用",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "isolate",
+    "meaningEn": "to set apart from others; to separate",
+    "meaningZh": "隔离；孤立",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "justify",
+    "meaningEn": "to show or prove to be right or reasonable",
+    "meaningZh": "证明...正当；辩护",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "label",
+    "meaningEn": "a tag or name attached to identify something",
+    "meaningZh": "标签；标记",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "layer",
+    "meaningEn": "a sheet or thickness laid over a surface",
+    "meaningZh": "层；层次",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "legitimate",
+    "meaningEn": "conforming to the law or to rules; valid",
+    "meaningZh": "合法的；正当的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "liberal",
+    "meaningEn": "open to new ideas; generous in amount",
+    "meaningZh": "自由主义的；开明的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "logic",
+    "meaningEn": "reasoning conducted according to strict principles",
+    "meaningZh": "逻辑；推理",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "maintain",
+    "meaningEn": "to cause to continue; to keep in a certain state",
+    "meaningZh": "维持；保持",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "manipulate",
+    "meaningEn": "to handle or control in a skillful or unfair way",
+    "meaningZh": "操纵；操控",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "margin",
+    "meaningEn": "the edge or border of something; a difference",
+    "meaningZh": "边缘；利润",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "mature",
+    "meaningEn": "fully developed physically or mentally; adult",
+    "meaningZh": "成熟的；到期的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "mechanism",
+    "meaningEn": "a system of parts working together; a process",
+    "meaningZh": "机制；机械装置",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "method",
+    "meaningEn": "a particular way of doing something",
+    "meaningZh": "方法；办法",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "migrate",
+    "meaningEn": "to move from one region to another",
+    "meaningZh": "迁移；移居",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "minimize",
+    "meaningEn": "to reduce something to the smallest possible amount",
+    "meaningZh": "最小化；减到最少",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "modify",
+    "meaningEn": "to make partial changes to something",
+    "meaningZh": "修改；调整",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "monitor",
+    "meaningEn": "to observe and check over a period of time",
+    "meaningZh": "监控；监测",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "mutual",
+    "meaningEn": "experienced or done by each of two parties",
+    "meaningZh": "相互的；共同的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "negate",
+    "meaningEn": "to nullify or make ineffective",
+    "meaningZh": "否定；取消",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "network",
+    "meaningEn": "a group of interconnected people or things",
+    "meaningZh": "网络；关系网",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "neutral",
+    "meaningEn": "not supporting either side; impartial",
+    "meaningZh": "中立的；中性的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "nevertheless",
+    "meaningEn": "in spite of that; however",
+    "meaningZh": "然而；尽管如此",
+    "partOfSpeech": "adv",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "notion",
+    "meaningEn": "a conception or belief about something",
+    "meaningZh": "概念；想法",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "notwithstanding",
+    "meaningEn": "in spite of; despite",
+    "meaningZh": "尽管；虽然",
+    "partOfSpeech": "adv",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "objective",
+    "meaningEn": "not influenced by personal feelings; a goal",
+    "meaningZh": "客观的；目标",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "obtain",
+    "meaningEn": "to get or acquire something",
+    "meaningZh": "获得；得到",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "obvious",
+    "meaningEn": "easily perceived or understood; clear",
+    "meaningZh": "明显的；显而易见的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "occupy",
+    "meaningEn": "to fill or take up a space or time",
+    "meaningZh": "占据；从事",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "offset",
+    "meaningEn": "to counterbalance or compensate for",
+    "meaningZh": "抵消；弥补",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "ongoing",
+    "meaningEn": "continuing; still in progress",
+    "meaningZh": "持续进行的；不断的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "orient",
+    "meaningEn": "to align or position relative to a point",
+    "meaningZh": "定向；使适应",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "outcome",
+    "meaningEn": "the way a thing turns out; a result",
+    "meaningZh": "结果；成果",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "overall",
+    "meaningEn": "taking everything into account; in general",
+    "meaningZh": "全面的；总体的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "paradigm",
+    "meaningEn": "a typical example or pattern; a model",
+    "meaningZh": "范式；典范",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "parallel",
+    "meaningEn": "occurring at the same time; side by side",
+    "meaningZh": "平行的；类似的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "parameter",
+    "meaningEn": "a numerical or other constant whose value defines a system",
+    "meaningZh": "参数；界限",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "participate",
+    "meaningEn": "to take part in an activity or event",
+    "meaningZh": "参与；参加",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "perceive",
+    "meaningEn": "to become aware of through the senses; to understand",
+    "meaningZh": "感知；察觉",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "persist",
+    "meaningEn": "to continue firmly in an opinion or action",
+    "meaningZh": "坚持；持续",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "perspective",
+    "meaningEn": "a particular attitude toward something; a viewpoint",
+    "meaningZh": "观点；视角",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "phenomenon",
+    "meaningEn": "a fact or situation observed to exist",
+    "meaningZh": "现象；奇迹",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "philosophy",
+    "meaningEn": "the study of fundamental nature of knowledge and existence",
+    "meaningZh": "哲学；人生观",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "policy",
+    "meaningEn": "a course of action adopted by a government or organization",
+    "meaningZh": "政策；方针",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "potential",
+    "meaningEn": "having the capacity to develop into something",
+    "meaningZh": "潜在的；可能的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "precede",
+    "meaningEn": "to come before something in time or order",
+    "meaningZh": "先于；在...之前",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "precise",
+    "meaningEn": "marked by exactness and accuracy of expression",
+    "meaningZh": "精确的；准确的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "predict",
+    "meaningEn": "to say what will happen in the future",
+    "meaningZh": "预测；预言",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "predominant",
+    "meaningEn": "present as the strongest or main element",
+    "meaningZh": "主要的；占优势的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "preliminary",
+    "meaningEn": "preceding and leading up to the main event",
+    "meaningZh": "初步的；预备的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "presume",
+    "meaningEn": "to suppose something is true without proof",
+    "meaningZh": "假定；推测",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "previous",
+    "meaningEn": "existing or occurring before in time or order",
+    "meaningZh": "先前的；以前的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "primary",
+    "meaningEn": "of chief importance; first in order",
+    "meaningZh": "主要的；初级的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "principal",
+    "meaningEn": "first in order of importance; main",
+    "meaningZh": "主要的；校长",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "principle",
+    "meaningEn": "a fundamental truth that serves as the basis for reasoning",
+    "meaningZh": "原则；原理",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "proceed",
+    "meaningEn": "to begin or continue a course of action",
+    "meaningZh": "进行；继续",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "prohibit",
+    "meaningEn": "to formally forbid by law or authority",
+    "meaningZh": "禁止；阻止",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "promote",
+    "meaningEn": "to further the progress of; to advance",
+    "meaningZh": "促进；提升",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "proportion",
+    "meaningEn": "a part or share of a whole; a comparative relation",
+    "meaningZh": "比例；部分",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "protocol",
+    "meaningEn": "the official procedure or system of rules",
+    "meaningZh": "协议；规程",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "psychology",
+    "meaningEn": "the scientific study of the human mind and behavior",
+    "meaningZh": "心理学；心理",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "pursue",
+    "meaningEn": "to follow or chase; to seek to accomplish",
+    "meaningZh": "追求；从事",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "qualitative",
+    "meaningEn": "relating to the quality or character of something",
+    "meaningZh": "定性的；质的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "radical",
+    "meaningEn": "relating to fundamental change; extreme",
+    "meaningZh": "根本的；激进的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "random",
+    "meaningEn": "made or done without method or conscious decision",
+    "meaningZh": "随机的；任意的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "range",
+    "meaningEn": "the extent or scope of variation",
+    "meaningZh": "范围；幅度",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "ratio",
+    "meaningEn": "the quantitative relation between two amounts",
+    "meaningZh": "比率；比例",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "recover",
+    "meaningEn": "to return to a normal state; to regain",
+    "meaningZh": "恢复；收回",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "refine",
+    "meaningEn": "to improve by making small changes; to purify",
+    "meaningZh": "精炼；改善",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "regime",
+    "meaningEn": "a government or system of management",
+    "meaningZh": "政权；制度",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "region",
+    "meaningEn": "an area of a country or the world",
+    "meaningZh": "地区；区域",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "regulate",
+    "meaningEn": "to control or supervise by rules",
+    "meaningZh": "调节；管理",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "reinforce",
+    "meaningEn": "to strengthen or support further",
+    "meaningZh": "加强；增援",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "relevant",
+    "meaningEn": "closely connected or appropriate to the matter",
+    "meaningZh": "相关的；有意义的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "reluctance",
+    "meaningEn": "unwillingness or disinclination to do something",
+    "meaningZh": "不情愿；勉强",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "require",
+    "meaningEn": "to need something as essential; to demand",
+    "meaningZh": "需要；要求",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "research",
+    "meaningEn": "systematic investigation to establish facts",
+    "meaningZh": "研究；调查",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "resolve",
+    "meaningEn": "to settle or find a solution to a problem",
+    "meaningZh": "解决；决心",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "resource",
+    "meaningEn": "a supply that can be drawn on when needed",
+    "meaningZh": "资源；财力",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "respond",
+    "meaningEn": "to say or act in reply",
+    "meaningZh": "回应；做出反应",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "restore",
+    "meaningEn": "to bring back to a former condition",
+    "meaningZh": "恢复；修复",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "restrict",
+    "meaningEn": "to put a limit on; to keep under control",
+    "meaningZh": "限制；约束",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "retain",
+    "meaningEn": "to continue to have or hold; to keep",
+    "meaningZh": "保留；保持",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "reveal",
+    "meaningEn": "to make known something previously hidden",
+    "meaningZh": "揭示；透露",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "revenue",
+    "meaningEn": "income earned by a government or company",
+    "meaningZh": "收入；税收",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "revise",
+    "meaningEn": "to reconsider and alter in light of further evidence",
+    "meaningZh": "修订；修改",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "revolution",
+    "meaningEn": "a forcible overthrow of a system; a dramatic change",
+    "meaningZh": "革命；变革",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "rigid",
+    "meaningEn": "unable to bend or be forced out of shape; strict",
+    "meaningZh": "僵硬的；严格的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "scenario",
+    "meaningEn": "a postulated sequence of possible events",
+    "meaningZh": "情景；方案",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "scope",
+    "meaningEn": "the extent of the area or subject matter",
+    "meaningZh": "范围；领域",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "sector",
+    "meaningEn": "an area or portion distinguished from others",
+    "meaningZh": "部门；领域",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "seek",
+    "meaningEn": "to attempt to find or obtain something",
+    "meaningZh": "寻找；寻求",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "sequence",
+    "meaningEn": "a particular order in which related events follow",
+    "meaningZh": "顺序；序列",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "shift",
+    "meaningEn": "to move or change from one position to another",
+    "meaningZh": "转变；转移",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "significant",
+    "meaningEn": "sufficiently great or important to be worthy of attention",
+    "meaningZh": "重要的；有意义的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "simulate",
+    "meaningEn": "to imitate the appearance or character of",
+    "meaningZh": "模拟；模仿",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "sole",
+    "meaningEn": "one and only; single",
+    "meaningZh": "唯一的；仅有的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "source",
+    "meaningEn": "a place or thing from which something originates",
+    "meaningZh": "来源；根源",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "specific",
+    "meaningEn": "clearly defined or identified; particular",
+    "meaningZh": "具体的；特定的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "stable",
+    "meaningEn": "not likely to change or fail; firmly established",
+    "meaningZh": "稳定的；稳固的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "statistic",
+    "meaningEn": "a fact or piece of data from a study of numerical data",
+    "meaningZh": "统计数据；统计学",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "strategy",
+    "meaningEn": "a plan of action designed to achieve a long-term goal",
+    "meaningZh": "策略；战略",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "structure",
+    "meaningEn": "the arrangement of parts forming a whole",
+    "meaningZh": "结构；构造",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "subordinate",
+    "meaningEn": "lower in rank or position; secondary",
+    "meaningZh": "下级的；从属的",
+    "partOfSpeech": "adj",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "subsequent",
+    "meaningEn": "coming after something in time; following",
+    "meaningZh": "随后的；后来的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "substitute",
+    "meaningEn": "a person or thing acting in place of another",
+    "meaningZh": "替代品；代替",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "sufficient",
+    "meaningEn": "enough to meet the needs of a situation",
+    "meaningZh": "足够的；充分的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "supplement",
+    "meaningEn": "something added to complete or enhance",
+    "meaningZh": "补充；增刊",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "survey",
+    "meaningEn": "a general examination or investigation",
+    "meaningZh": "调查；测量",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "survive",
+    "meaningEn": "to continue to live or exist despite danger",
+    "meaningZh": "幸存；存活",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "suspend",
+    "meaningEn": "to temporarily prevent from continuing",
+    "meaningZh": "暂停；中止",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "sustain",
+    "meaningEn": "to strengthen or support over a long period",
+    "meaningZh": "维持；支撑",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "symbol",
+    "meaningEn": "a thing that represents something else",
+    "meaningZh": "象征；符号",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "target",
+    "meaningEn": "an objective or result aimed at",
+    "meaningZh": "目标；靶子",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "technique",
+    "meaningEn": "a way of carrying out a particular task",
+    "meaningZh": "技术；技巧",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "technology",
+    "meaningEn": "the application of scientific knowledge for practical purposes",
+    "meaningZh": "技术；科技",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "temporary",
+    "meaningEn": "lasting for only a limited period of time",
+    "meaningZh": "临时的；暂时的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "terminate",
+    "meaningEn": "to bring to an end; to conclude",
+    "meaningZh": "终止；结束",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "theory",
+    "meaningEn": "a system of ideas intended to explain something",
+    "meaningZh": "理论；学说",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "thereby",
+    "meaningEn": "by that means; as a result of that",
+    "meaningZh": "因此；从而",
+    "partOfSpeech": "adv",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "thesis",
+    "meaningEn": "a statement put forward as a premise to be proved",
+    "meaningZh": "论文；论点",
+    "partOfSpeech": "n",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "tradition",
+    "meaningEn": "a long-established custom or belief",
+    "meaningZh": "传统；惯例",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "transfer",
+    "meaningEn": "to move from one place to another",
+    "meaningZh": "转移；调动",
+    "partOfSpeech": "v",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "transform",
+    "meaningEn": "to make a thorough or dramatic change in form",
+    "meaningZh": "转变；改造",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "transmit",
+    "meaningEn": "to cause something to pass on from one to another",
+    "meaningZh": "传输；传播",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "trend",
+    "meaningEn": "a general direction in which something is developing",
+    "meaningZh": "趋势；潮流",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "trigger",
+    "meaningEn": "to cause an event or situation to happen",
+    "meaningZh": "触发；引起",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "ultimate",
+    "meaningEn": "being the best or most extreme of its kind; final",
+    "meaningZh": "最终的；极端的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "undergo",
+    "meaningEn": "to experience or be subjected to",
+    "meaningZh": "经历；承受",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "underlie",
+    "meaningEn": "to be the cause or basis of",
+    "meaningZh": "构成...的基础；潜在",
+    "partOfSpeech": "v",
+    "difficulty": "advanced",
+    "source": ["toefl"]
+  },
+  {
+    "word": "undertake",
+    "meaningEn": "to commit oneself to begin doing something",
+    "meaningZh": "承担；从事",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "uniform",
+    "meaningEn": "not changing in form or character; consistent",
+    "meaningZh": "统一的；一致的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "unique",
+    "meaningEn": "being the only one of its kind; unlike anything else",
+    "meaningZh": "独特的；唯一的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "utilize",
+    "meaningEn": "to make practical and effective use of",
+    "meaningZh": "利用；使用",
+    "partOfSpeech": "v",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "valid",
+    "meaningEn": "having a sound basis in logic or fact",
+    "meaningZh": "有效的；合理的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "variable",
+    "meaningEn": "not consistent or having a fixed pattern; liable to change",
+    "meaningZh": "可变的；变量",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "vehicle",
+    "meaningEn": "a thing used for transporting people or goods",
+    "meaningZh": "车辆；媒介",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "version",
+    "meaningEn": "a particular form of something differing from others",
+    "meaningZh": "版本；说法",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "virtual",
+    "meaningEn": "nearly as described but not completely; computer-generated",
+    "meaningZh": "虚拟的；实质上的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "visible",
+    "meaningEn": "able to be seen or noticed",
+    "meaningZh": "可见的；明显的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "volume",
+    "meaningEn": "the amount of space occupied; a book forming part of a set",
+    "meaningZh": "体积；音量；卷",
+    "partOfSpeech": "n",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  },
+  {
+    "word": "voluntary",
+    "meaningEn": "done of one's own free will; not compelled",
+    "meaningZh": "自愿的；志愿的",
+    "partOfSpeech": "adj",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "welfare",
+    "meaningEn": "the health and happiness of a person or group",
+    "meaningZh": "福利；幸福",
+    "partOfSpeech": "n",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "whereas",
+    "meaningEn": "in contrast or comparison with the fact that",
+    "meaningZh": "然而；鉴于",
+    "partOfSpeech": "adv",
+    "difficulty": "common",
+    "source": ["toefl"]
+  },
+  {
+    "word": "widespread",
+    "meaningEn": "found or distributed over a large area",
+    "meaningZh": "广泛的；普遍的",
+    "partOfSpeech": "adj",
+    "difficulty": "basic",
+    "source": ["toefl"]
+  }
+]
