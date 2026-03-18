@@ -19,7 +19,7 @@ function ensureWordTable(content: string, words: WordEntry[]): string {
       const en = w.meaningEn || "-";
       const zh = (w.meaningZh && w.meaningZh !== "待查询" && w.meaningZh !== "（请参考英文释义）")
         ? w.meaningZh : "-";
-      return `| ${w.word} | - | ${pos} | ${en} | ${zh} |`;
+      return `| ${w.word} | ${pos} | ${zh} | ${en} | - |`;
     })
     .join("\n");
 
@@ -27,8 +27,8 @@ function ensureWordTable(content: string, words: WordEntry[]): string {
 
 ---
 ### 📖 单词释义
-| 单词 | 音标 | 词性 | 英文释义 | 中文释义 |
-|------|------|------|----------|----------|
+| 单词 | 词性 | 中文释义 | 英文释义 | 音标 |
+|------|------|----------|----------|------|
 ${tableRows}`;
 
   return content + table;

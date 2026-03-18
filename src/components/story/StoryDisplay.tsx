@@ -40,21 +40,21 @@ function parseTable(lines: string[], startIdx: number): { table: TableData; endI
   return { table: { headers, rows }, endIdx: i - 1 };
 }
 
-// Column width classes by index: 单词(0), 音标(1), 词性(2), 英文释义(3), 中文释义(4)
+// Column width classes by index: 单词(0), 词性(1), 中文释义(2), 英文释义(3), 音标(4)
 const COL_CLASSES = [
   "font-bold text-primary w-[15%]",        // 单词
-  "text-muted font-mono text-xs w-[15%]",  // 音标
   "text-foreground w-[10%]",               // 词性
-  "text-foreground w-[30%]",               // 英文释义
-  "text-foreground w-[30%]",               // 中文释义
+  "text-foreground w-[25%]",               // 中文释义
+  "text-foreground w-[35%]",               // 英文释义
+  "text-muted font-mono text-xs w-[15%]",  // 音标
 ];
 
 const HEADER_CLASSES = [
   "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[15%]",
-  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[15%]",
   "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[10%]",
-  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[30%]",
-  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[30%]",
+  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[25%]",
+  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[35%]",
+  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[15%]",
 ];
 
 function parseStoryContent(content: string, interactive: boolean): React.ReactNode[] {

@@ -74,7 +74,6 @@ export default function StoryDetailPage({
             className="px-3 py-1.5 bg-primary/10 text-primary rounded-full text-sm font-medium"
           >
             {w.word}
-            <span className="text-primary/60 ml-1 text-xs">{w.meaningZh}</span>
           </span>
         ))}
       </div>
