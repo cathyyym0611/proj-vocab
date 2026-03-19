@@ -1,6 +1,11 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "proj-vocab",
+  "main": ".open-next/worker.js",
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
   "compatibility_date": "2025-03-18",
   "compatibility_flags": ["nodejs_compat"],
   "observability": {
