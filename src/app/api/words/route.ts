@@ -3,8 +3,6 @@ import toeflWords from "@/data/toefl-words.json";
 import ieltsWords from "@/data/ielts-words.json";
 import type { GREWord, ExamType } from "@/types";
 
-export const runtime = "edge";
-
 const wordsByExam: Record<ExamType, GREWord[]> = {
   gre: greWords as GREWord[],
   toefl: toeflWords as GREWord[],
