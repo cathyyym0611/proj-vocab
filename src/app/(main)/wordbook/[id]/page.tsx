@@ -1,4 +1,7 @@
 "use client";
+
+export const runtime = "edge";
+
 import { use, useEffect, useState } from "react";
 import Link from "next/link";
 import { db } from "@/lib/db";
