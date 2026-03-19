@@ -4,6 +4,8 @@ import { buildPrompt } from "@/lib/prompts";
 import { consumeRateLimit } from "@/lib/rate-limit";
 import type { GenerateRequest } from "@/types";
 
+export const runtime = "edge";
+
 function getClientIP(headersList: Headers): string {
   const forwarded = headersList.get("x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0].trim();

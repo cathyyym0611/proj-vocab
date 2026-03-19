@@ -1,6 +1,8 @@
 import { headers } from "next/headers";
 import { getRemainingCount } from "@/lib/rate-limit";
 
+export const runtime = "edge";
+
 function getClientIP(headersList: Headers): string {
   // Check common proxy headers
   const forwarded = headersList.get("x-forwarded-for");
