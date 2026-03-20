@@ -61,8 +61,14 @@ export function useStoryGeneration() {
         });
 
         if (!response.ok) {
-          const data = await response.json();
-          throw new Error(data.error || "生成失败");
+          let message = "生成失败";
+          try {
+            const data = await response.json();
+            message = data.error || message;
+          } catch {
+            message = "服务器内部错误，请稍后重试";
+          }
+          throw new Error(message);
         }
 
         const reader = response.body?.getReader();
