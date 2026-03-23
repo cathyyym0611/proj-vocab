@@ -1,5 +1,5 @@
 import { headers } from "next/headers";
-import { client } from "@/lib/claude";
+import { getClient } from "@/lib/claude";
 import { buildPrompt } from "@/lib/prompts";
 import { consumeRateLimit } from "@/lib/rate-limit";
 import type { GenerateRequest } from "@/types";
@@ -104,6 +104,7 @@ export async function POST(request: Request) {
     }
 
     const { system, user } = buildPrompt(words, style, customPrompt);
+    const client = getClient();
 
     const encoder = new TextEncoder();
 
@@ -150,7 +151,6 @@ export async function POST(request: Request) {
       headers: {
         "Content-Type": "text/event-stream",
         "Cache-Control": "no-cache",
-        Connection: "keep-alive",
       },
     });
   } catch (error) {
