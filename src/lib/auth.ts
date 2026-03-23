@@ -6,6 +6,7 @@ export const GUEST_COOKIE = "vocab_guest_id";
 export const GUEST_DAILY_LIMIT = 5;
 export const USER_DAILY_LIMIT = 10;
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
+const PASSWORD_HASH_ITERATIONS = 100000;
 
 type SessionType = "guest" | "user";
 
@@ -69,7 +70,7 @@ async function derivePassword(password: string, saltHex: string): Promise<string
     {
       name: "PBKDF2",
       salt: Buffer.from(saltHex, "hex"),
-      iterations: 120000,
+      iterations: PASSWORD_HASH_ITERATIONS,
       hash: "SHA-256",
     },
     keyMaterial,
