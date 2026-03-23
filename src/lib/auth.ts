@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { getEnv, isProductionRuntime } from "@/lib/env";
 import { getRedis } from "@/lib/redis";
 
 export const SESSION_COOKIE = "vocab_session";
@@ -65,7 +66,7 @@ function randomToken(bytes: number) {
 
 function getAuthRedisOrThrow() {
   const redis = getRedis();
-  if (!redis && process.env.NODE_ENV === "production") {
+  if (!redis && isProductionRuntime()) {
     throw new Error("生产环境未配置 Redis，无法保存账号、验证码和登录会话。请先配置 Upstash Redis。");
   }
   return redis;
@@ -219,7 +220,7 @@ export async function getOrCreateGuestId() {
   cookieStore.set(GUEST_COOKIE, guestId, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: isProductionRuntime(),
     path: "/",
     maxAge: SESSION_TTL_SECONDS,
   });
@@ -257,7 +258,7 @@ export async function setSessionCookie(token: string) {
   cookieStore.set(SESSION_COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
-    secure: process.env.NODE_ENV === "production",
+    secure: isProductionRuntime(),
     path: "/",
     maxAge: SESSION_TTL_SECONDS,
   });

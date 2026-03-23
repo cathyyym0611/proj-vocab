@@ -1,14 +1,16 @@
+import { getEnv, isProductionRuntime } from "@/lib/env";
+
 interface SendCodeEmailInput {
   email: string;
   code: string;
 }
 
 export async function sendCodeEmail({ email, code }: SendCodeEmailInput) {
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.AUTH_EMAIL_FROM;
+  const apiKey = getEnv("RESEND_API_KEY");
+  const from = getEnv("AUTH_EMAIL_FROM");
 
   if (!apiKey || !from) {
-    if (process.env.NODE_ENV !== "production") {
+    if (!isProductionRuntime()) {
       console.info(`[auth] verification code for ${email}: ${code}`);
       return { delivered: false, debugCode: code };
     }

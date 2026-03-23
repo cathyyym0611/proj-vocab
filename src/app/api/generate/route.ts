@@ -4,6 +4,7 @@ import {
   getQuotaSubject,
 } from "@/lib/auth";
 import { getClient } from "@/lib/claude";
+import { getEnv } from "@/lib/env";
 import { buildPrompt } from "@/lib/prompts";
 import { consumeQuota } from "@/lib/quota";
 import type { GenerateRequest } from "@/types";
@@ -47,7 +48,7 @@ function friendlyError(error: unknown): string {
 
 export async function POST(request: Request) {
   try {
-    if (!process.env.OPENAI_API_KEY) {
+    if (!getEnv("OPENAI_API_KEY")) {
       return new Response(
         JSON.stringify({
           error:
