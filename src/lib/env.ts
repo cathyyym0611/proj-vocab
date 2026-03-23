@@ -19,6 +19,20 @@ export function getEnv(name: string): string | undefined {
   return readFromProcessEnv(name) ?? readFromCloudflareEnv(name);
 }
 
+async function readFromCloudflareEnvAsync(name: string): Promise<string | undefined> {
+  try {
+    const { env } = await getCloudflareContext({ async: true });
+    const value = (env as Record<string, unknown>)[name];
+    return typeof value === "string" ? value : undefined;
+  } catch {
+    return undefined;
+  }
+}
+
+export async function getEnvAsync(name: string): Promise<string | undefined> {
+  return readFromProcessEnv(name) ?? await readFromCloudflareEnvAsync(name);
+}
+
 export function isProductionRuntime() {
   return getEnv("NODE_ENV") === "production" || process.env.NODE_ENV === "production";
 }

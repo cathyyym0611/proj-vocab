@@ -4,7 +4,7 @@ import {
   getQuotaSubject,
 } from "@/lib/auth";
 import { getClient } from "@/lib/claude";
-import { getEnv } from "@/lib/env";
+import { getEnvAsync } from "@/lib/env";
 import { buildPrompt } from "@/lib/prompts";
 import { consumeQuota } from "@/lib/quota";
 import type { GenerateRequest } from "@/types";
@@ -48,7 +48,7 @@ function friendlyError(error: unknown): string {
 
 export async function POST(request: Request) {
   try {
-    if (!getEnv("OPENAI_API_KEY")) {
+    if (!(await getEnvAsync("OPENAI_API_KEY"))) {
       return new Response(
         JSON.stringify({
           error:
@@ -117,7 +117,7 @@ export async function POST(request: Request) {
     }
 
     const { system, user } = buildPrompt(words, style, customPrompt);
-    const client = getClient();
+    const client = await getClient();
 
     const encoder = new TextEncoder();
 

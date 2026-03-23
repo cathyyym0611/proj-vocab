@@ -29,7 +29,7 @@ function memIncrement(subject: string) {
 }
 
 export async function getRemainingQuota(subject: string, limit: number) {
-  const redis = getRedis();
+  const redis = await getRedis();
   const key = makeKey(subject);
 
   if (redis) {
@@ -42,7 +42,7 @@ export async function getRemainingQuota(subject: string, limit: number) {
 }
 
 export async function consumeQuota(subject: string, limit: number) {
-  const redis = getRedis();
+  const redis = await getRedis();
   const key = makeKey(subject);
   const ttl = 86400;
 

@@ -65,11 +65,12 @@ function randomToken(bytes: number) {
 }
 
 function getAuthRedisOrThrow() {
-  const redis = getRedis();
-  if (!redis && isProductionRuntime()) {
-    throw new Error("生产环境未配置 Redis，无法保存账号、验证码和登录会话。请先配置 Upstash Redis。");
-  }
-  return redis;
+  return getRedis().then((redis) => {
+    if (!redis && isProductionRuntime()) {
+      throw new Error("生产环境未配置 Redis，无法保存账号、验证码和登录会话。请先配置 Upstash Redis。");
+    }
+    return redis;
+  });
 }
 
 export function generateEmailCode() {
@@ -83,7 +84,7 @@ export function isValidEmail(email: string) {
 
 export async function getUserByEmail(email: string): Promise<AuthUserRecord | null> {
   const normalized = normalizeEmail(email);
-  const redis = getAuthRedisOrThrow();
+  const redis = await getAuthRedisOrThrow();
 
   if (redis) {
     const record = await redis.get<AuthUserRecord>(`auth:user:${normalized}`);
@@ -105,7 +106,7 @@ export async function createUser(email: string): Promise<AuthUserRecord> {
     verifiedAt: now(),
   };
 
-  const redis = getAuthRedisOrThrow();
+  const redis = await getAuthRedisOrThrow();
   if (redis) {
     await redis.set(`auth:user:${normalized}`, user);
   } else {
@@ -125,7 +126,7 @@ export async function sendVerificationCode(email: string) {
     expiresAt: now() + 10 * 60 * 1000,
   };
 
-  const redis = getAuthRedisOrThrow();
+  const redis = await getAuthRedisOrThrow();
   if (redis) {
     await redis.set(`auth:code:${normalized}`, record, { ex: 10 * 60 });
   } else {
@@ -137,7 +138,7 @@ export async function sendVerificationCode(email: string) {
 
 export async function verifyEmailCode(email: string, code: string) {
   const normalized = normalizeEmail(email);
-  const redis = getAuthRedisOrThrow();
+  const redis = await getAuthRedisOrThrow();
   const record = redis
     ? await redis.get<VerificationCodeRecord>(`auth:code:${normalized}`)
     : (memoryStore.verificationCodes.get(normalized) ?? null);
@@ -164,7 +165,7 @@ export async function verifyEmailCode(email: string, code: string) {
 }
 
 async function saveSession(record: AuthSessionRecord) {
-  const redis = getAuthRedisOrThrow();
+  const redis = await getAuthRedisOrThrow();
   if (redis) {
     await redis.set(`auth:session:${record.token}`, record, {
       ex: SESSION_TTL_SECONDS,
@@ -175,7 +176,7 @@ async function saveSession(record: AuthSessionRecord) {
 }
 
 async function getSessionRecord(token: string): Promise<AuthSessionRecord | null> {
-  const redis = getAuthRedisOrThrow();
+  const redis = await getAuthRedisOrThrow();
   if (redis) {
     const record = await redis.get<AuthSessionRecord>(`auth:session:${token}`);
     return record ?? null;
@@ -185,7 +186,7 @@ async function getSessionRecord(token: string): Promise<AuthSessionRecord | null
 }
 
 async function deleteSessionRecord(token: string) {
-  const redis = getAuthRedisOrThrow();
+  const redis = await getAuthRedisOrThrow();
   if (redis) {
     await redis.del(`auth:session:${token}`);
     return;

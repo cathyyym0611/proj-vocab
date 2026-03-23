@@ -4,7 +4,7 @@
  */
 
 import { Redis } from "@upstash/redis";
-import { getEnv } from "@/lib/env";
+import { getEnvAsync } from "@/lib/env";
 
 const DAILY_LIMIT = 10;
 const KEY_TTL_SECONDS = 86400; // 24 hours
@@ -21,10 +21,10 @@ function makeKey(ip: string): string {
 
 let redis: Redis | null = null;
 
-function getRedis(): Redis | null {
+async function getRedis(): Promise<Redis | null> {
   if (redis) return redis;
-  const url = getEnv("KV_REST_API_URL") ?? getEnv("UPSTASH_REDIS_REST_URL");
-  const token = getEnv("KV_REST_API_TOKEN") ?? getEnv("UPSTASH_REDIS_REST_TOKEN");
+  const url = (await getEnvAsync("KV_REST_API_URL")) ?? (await getEnvAsync("UPSTASH_REDIS_REST_URL"));
+  const token = (await getEnvAsync("KV_REST_API_TOKEN")) ?? (await getEnvAsync("UPSTASH_REDIS_REST_TOKEN"));
   if (url && token) {
     redis = new Redis({ url, token });
     return redis;
@@ -65,7 +65,7 @@ export async function getRemainingCount(ip: string): Promise<{
   remaining: number;
   limit: number;
 }> {
-  const r = getRedis();
+  const r = await getRedis();
   if (r) {
     const count = (await r.get<number>(makeKey(ip))) ?? 0;
     return { remaining: Math.max(0, DAILY_LIMIT - count), limit: DAILY_LIMIT };
@@ -79,7 +79,7 @@ export async function consumeRateLimit(ip: string): Promise<{
   remaining: number;
   limit: number;
 }> {
-  const r = getRedis();
+  const r = await getRedis();
 
   if (r) {
     const key = makeKey(ip);

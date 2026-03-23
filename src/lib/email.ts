@@ -1,4 +1,4 @@
-import { getEnv, isProductionRuntime } from "@/lib/env";
+import { getEnvAsync, isProductionRuntime } from "@/lib/env";
 
 interface SendCodeEmailInput {
   email: string;
@@ -6,8 +6,8 @@ interface SendCodeEmailInput {
 }
 
 export async function sendCodeEmail({ email, code }: SendCodeEmailInput) {
-  const apiKey = getEnv("RESEND_API_KEY");
-  const from = getEnv("AUTH_EMAIL_FROM");
+  const apiKey = await getEnvAsync("RESEND_API_KEY");
+  const from = await getEnvAsync("AUTH_EMAIL_FROM");
 
   if (!apiKey || !from) {
     if (!isProductionRuntime()) {

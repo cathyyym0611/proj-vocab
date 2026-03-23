@@ -1,8 +1,8 @@
 import OpenAI from "openai";
-import { getEnv } from "@/lib/env";
+import { getEnvAsync } from "@/lib/env";
 
-export function getClient() {
+export async function getClient() {
   return new OpenAI({
-    apiKey: getEnv("OPENAI_API_KEY"),
+    apiKey: await getEnvAsync("OPENAI_API_KEY"),
   });
 }
