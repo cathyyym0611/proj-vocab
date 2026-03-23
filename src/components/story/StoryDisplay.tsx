@@ -15,6 +15,8 @@ interface TableData {
   rows: string[][];
 }
 
+const TABLE_ORDER = ["单词", "词性", "音标", "中文释义", "英文释义"];
+
 function parseTable(lines: string[], startIdx: number): { table: TableData; endIdx: number } | null {
   const headerLine = lines[startIdx];
   if (!headerLine || !headerLine.includes("|")) return null;
@@ -37,24 +39,38 @@ function parseTable(lines: string[], startIdx: number): { table: TableData; endI
     i++;
   }
 
+  const normalizedHeaders = headers.map((header) => header.trim());
+  const canReorder = TABLE_ORDER.every((header) => normalizedHeaders.includes(header));
+
+  if (canReorder) {
+    const indexMap = TABLE_ORDER.map((header) => normalizedHeaders.indexOf(header));
+    return {
+      table: {
+        headers: TABLE_ORDER,
+        rows: rows.map((row) => indexMap.map((index) => row[index] ?? "")),
+      },
+      endIdx: i - 1,
+    };
+  }
+
   return { table: { headers, rows }, endIdx: i - 1 };
 }
 
-// Column width classes by index: 单词(0), 词性(1), 中文释义(2), 英文释义(3), 音标(4)
+// Column width classes by index: 单词(0), 词性(1), 音标(2), 中文释义(3), 英文释义(4)
 const COL_CLASSES = [
   "font-bold text-primary w-[15%]",        // 单词
   "text-foreground w-[10%]",               // 词性
-  "text-foreground w-[25%]",               // 中文释义
-  "text-foreground w-[35%]",               // 英文释义
-  "text-muted font-mono text-xs w-[15%]",  // 音标
+  "text-muted font-mono text-xs w-[14%]",  // 音标
+  "text-foreground w-[18%]",               // 中文释义
+  "text-foreground w-[43%]",               // 英文释义
 ];
 
 const HEADER_CLASSES = [
   "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[15%]",
   "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[10%]",
-  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[25%]",
-  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[35%]",
-  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[15%]",
+  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[14%]",
+  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[18%]",
+  "text-left py-2.5 px-3 font-bold text-primary text-xs tracking-wide w-[43%]",
 ];
 
 function parseStoryContent(content: string, interactive: boolean): React.ReactNode[] {

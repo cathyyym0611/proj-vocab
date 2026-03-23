@@ -1,26 +1,27 @@
-import { headers } from "next/headers";
-import { getRemainingCount } from "@/lib/rate-limit";
-
-function getClientIP(headersList: Headers): string {
-  // Check common proxy headers
-  const forwarded = headersList.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
-
-  const realIP = headersList.get("x-real-ip");
-  if (realIP) return realIP;
-
-  return "unknown";
-}
+import {
+  getCurrentSession,
+  getDailyLimitForSession,
+  getQuotaSubject,
+} from "@/lib/auth";
+import { getRemainingQuota } from "@/lib/quota";
 
 export async function GET() {
   try {
-    const headersList = await headers();
-    const ip = getClientIP(headersList);
-    const { remaining, limit } = await getRemainingCount(ip);
+    const session = await getCurrentSession();
+    if (!session) {
+      return Response.json({
+        remaining: 0,
+        limit: 0,
+        session: null,
+      });
+    }
 
-    return Response.json({ remaining, limit });
+    const limit = getDailyLimitForSession(session);
+    const { remaining } = await getRemainingQuota(getQuotaSubject(session), limit);
+
+    return Response.json({ remaining, limit, session });
   } catch (error) {
     console.error("[limit] failed to fetch remaining count, using fallback:", error);
-    return Response.json({ remaining: 10, limit: 10 });
+    return Response.json({ remaining: 0, limit: 0, session: null });
   }
 }

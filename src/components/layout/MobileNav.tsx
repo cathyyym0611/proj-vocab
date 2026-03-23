@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useAuth } from "@/hooks/useAuth";
 
 const NAV_ITEMS = [
   { href: "/generate", label: "生成", icon: "✨" },
@@ -10,6 +11,7 @@ const NAV_ITEMS = [
 
 export function MobileNav() {
   const pathname = usePathname();
+  const { session } = useAuth();
 
   return (
     <nav className="md:hidden fixed bottom-0 inset-x-0 bg-surface border-t border-border z-50">
@@ -29,6 +31,15 @@ export function MobileNav() {
             </Link>
           );
         })}
+        <Link
+          href={session ? "/generate" : "/auth"}
+          className={`flex flex-col items-center gap-1 py-1 px-3 text-xs transition-colors ${
+            pathname.startsWith("/auth") ? "text-primary" : "text-muted"
+          }`}
+        >
+          <span className="text-xl">{session ? "👤" : "🔐"}</span>
+          {session ? "账号" : "登录"}
+        </Link>
       </div>
     </nav>
   );

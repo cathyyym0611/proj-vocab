@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useAuth } from "@/hooks/useAuth";
 
 const NAV_ITEMS = [
   { href: "/generate", label: "生成故事", icon: "✨" },
@@ -10,6 +11,14 @@ const NAV_ITEMS = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
+  const { session, logout } = useAuth();
+
+  async function handleLogout() {
+    await logout();
+    router.push("/auth");
+    router.refresh();
+  }
 
   return (
     <aside className="hidden md:flex md:w-60 md:flex-col md:fixed md:inset-y-0 border-r border-border bg-surface">
@@ -41,7 +50,31 @@ export function Sidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t border-border">
+      <div className="p-4 border-t border-border space-y-3">
+        {session ? (
+          <div className="rounded-xl border border-border bg-surface-hover px-3 py-3">
+            <p className="text-xs text-muted">
+              {session.type === "guest" ? "当前身份" : "当前账号"}
+            </p>
+            <p className="mt-1 text-sm font-medium">
+              {session.type === "guest" ? "游客模式" : session.email}
+            </p>
+            <button
+              onClick={handleLogout}
+              className="mt-3 text-xs text-primary hover:underline"
+            >
+              退出登录
+            </button>
+          </div>
+        ) : (
+          <Link
+            href="/auth"
+            className="block rounded-xl border border-border px-3 py-3 text-sm font-medium text-center hover:bg-surface-hover"
+          >
+            登录 / 注册
+          </Link>
+        )}
+
         <p className="text-xs text-muted text-center">
           AI驱动 · 情境记忆
         </p>

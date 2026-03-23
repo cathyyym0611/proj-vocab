@@ -1,16 +1,12 @@
-import { headers } from "next/headers";
+import {
+  getCurrentSession,
+  getDailyLimitForSession,
+  getQuotaSubject,
+} from "@/lib/auth";
 import { getClient } from "@/lib/claude";
 import { buildPrompt } from "@/lib/prompts";
-import { consumeRateLimit } from "@/lib/rate-limit";
+import { consumeQuota } from "@/lib/quota";
 import type { GenerateRequest } from "@/types";
-
-function getClientIP(headersList: Headers): string {
-  const forwarded = headersList.get("x-forwarded-for");
-  if (forwarded) return forwarded.split(",")[0].trim();
-  const realIP = headersList.get("x-real-ip");
-  if (realIP) return realIP;
-  return "unknown";
-}
 
 function friendlyError(error: unknown): string {
   if (!(error instanceof Error)) return "生成失败，请重试";
@@ -61,24 +57,40 @@ export async function POST(request: Request) {
       );
     }
 
-    const headersList = await headers();
-    const ip = getClientIP(headersList);
+    const session = await getCurrentSession();
+    if (!session) {
+      return new Response(
+        JSON.stringify({
+          error: "请先登录邮箱账号或选择游客登录后再生成故事。",
+        }),
+        { status: 401, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    const dailyLimit = getDailyLimitForSession(session);
+    const subject = getQuotaSubject(session);
 
     let allowed = true;
-    let remaining = 10;
+    let remaining = dailyLimit;
     try {
-      const rateLimitResult = await consumeRateLimit(ip);
-      allowed = rateLimitResult.allowed;
-      remaining = rateLimitResult.remaining;
+      const quotaResult = await consumeQuota(subject, dailyLimit);
+      allowed = quotaResult.allowed;
+      remaining = quotaResult.remaining;
     } catch (error) {
-      console.error("[generate] rate limit check failed, falling back:", error);
+      console.error("[generate] quota check failed, falling back:", error);
     }
 
     if (!allowed) {
+      const errorMessage =
+        session.type === "guest"
+          ? "游客账号今日 5 次生成机会已用完。注册邮箱账号后，每天可获得 10 次生成机会。"
+          : "今日生成次数已用完，请明天再来。先去复习已有的故事吧，间隔复习效果更好哦 ✨";
+
       return new Response(
         JSON.stringify({
-          error: "今日生成次数已用完，请明天再来！先去复习已有的故事吧，间隔复习效果更好哦 ✨",
+          error: errorMessage,
           remaining: 0,
+          limit: dailyLimit,
         }),
         { status: 429, headers: { "Content-Type": "application/json" } }
       );

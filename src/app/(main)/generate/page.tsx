@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import { Suspense, useState, useEffect, useCallback, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import type { WordEntry, StoryStyle } from "@/types";
@@ -24,7 +25,7 @@ function GenerateContent() {
   const styleRef = useRef<StoryStyle>("palace");
   const { story, isGenerating, error, generate, reset, serverRemaining } = useStoryGeneration();
   const { saveStory } = useWordbook();
-  const { remaining, canGenerate, updateRemaining, resetTime, dailyLimit } = useDailyLimit();
+  const { remaining, canGenerate, updateRemaining, resetTime, dailyLimit, session, loading } = useDailyLimit();
 
   // Keep styleRef in sync
   useEffect(() => {
@@ -188,14 +189,27 @@ function GenerateContent() {
 
       {/* Daily limit indicator */}
       <div className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm ${
-        canGenerate
+        !session
+          ? "bg-surface-hover border border-border"
+          : canGenerate
           ? "bg-primary/5 border border-primary/10"
           : "bg-yellow-50 border border-yellow-200"
       }`}>
-        {canGenerate ? (
+        {!session ? (
+          <>
+            <span>🔐</span>
+            <span className="text-muted">
+              先登录邮箱账号或选择游客登录后，才能开始生成故事。
+              <Link href="/auth" className="ml-2 font-medium text-primary">
+                去登录
+              </Link>
+            </span>
+          </>
+        ) : canGenerate ? (
           <>
             <span className="text-primary">✨</span>
             <span className="text-muted">
+              {session.type === "guest" ? "游客" : "账号"}
               今日剩余 <span className="font-bold text-primary">{remaining}</span>/{dailyLimit} 次生成机会
             </span>
           </>
@@ -203,9 +217,20 @@ function GenerateContent() {
           <>
             <span>🌙</span>
             <span className="text-yellow-800">
-              今日生成次数已用完，{resetTime}后重置。
+              {session.type === "guest"
+                ? `游客今日 ${dailyLimit} 次体验机会已用完，${resetTime}后重置。`
+                : `今日生成次数已用完，${resetTime}后重置。`}
               <span className="block text-yellow-600 mt-0.5">
-                先去复习已有的故事吧，间隔复习效果更好哦！
+                {session.type === "guest" ? (
+                  <>
+                    注册邮箱账号后，每天可获得 10 次生成机会。
+                    <Link href="/auth?mode=register" className="ml-1 font-medium underline">
+                      立即注册
+                    </Link>
+                  </>
+                ) : (
+                  "先去复习已有的故事吧，间隔复习效果更好哦！"
+                )}
               </span>
             </span>
           </>
@@ -218,7 +243,7 @@ function GenerateContent() {
 
         <button
           onClick={handleGenerate}
-          disabled={words.length === 0 || isGenerating || !canGenerate}
+          disabled={words.length === 0 || isGenerating || !canGenerate || loading}
           className="w-full py-3 bg-primary text-white rounded-xl font-medium text-sm hover:bg-primary-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isGenerating ? (
@@ -226,6 +251,8 @@ function GenerateContent() {
               <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
               故事生成中...
             </span>
+          ) : !session ? (
+            "请先登录或游客登录"
           ) : !canGenerate ? (
             "今日次数已用完"
           ) : (

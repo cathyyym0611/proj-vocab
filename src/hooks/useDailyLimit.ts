@@ -1,7 +1,8 @@
 "use client";
 import { useState, useCallback, useEffect } from "react";
+import type { ClientSession } from "@/types";
 
-const DEFAULT_LIMIT = 10;
+const DEFAULT_LIMIT = 0;
 
 function getResetTime(): string {
   const now = new Date();
@@ -18,6 +19,7 @@ function getResetTime(): string {
 export function useDailyLimit() {
   const [remaining, setRemaining] = useState(DEFAULT_LIMIT);
   const [dailyLimit, setDailyLimit] = useState(DEFAULT_LIMIT);
+  const [session, setSession] = useState<ClientSession | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Fetch remaining count from server on mount
@@ -29,6 +31,7 @@ export function useDailyLimit() {
           const data = await res.json();
           setRemaining(data.remaining ?? DEFAULT_LIMIT);
           setDailyLimit(data.limit ?? DEFAULT_LIMIT);
+          setSession(data.session ?? null);
         }
       } catch {
         // If fetch fails, keep defaults
@@ -52,14 +55,15 @@ export function useDailyLimit() {
         const data = await res.json();
         setRemaining(data.remaining ?? DEFAULT_LIMIT);
         setDailyLimit(data.limit ?? DEFAULT_LIMIT);
+        setSession(data.session ?? null);
       }
     } catch {
       // ignore
     }
   }, []);
 
-  const canGenerate = remaining > 0;
+  const canGenerate = !!session && remaining > 0;
   const resetTime = getResetTime();
 
-  return { remaining, canGenerate, updateRemaining, refresh, resetTime, dailyLimit, loading };
+  return { remaining, canGenerate, updateRemaining, refresh, resetTime, dailyLimit, loading, session };
 }

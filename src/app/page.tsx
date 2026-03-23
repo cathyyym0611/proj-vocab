@@ -24,10 +24,10 @@ export default function Home() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="/generate"
+            href="/auth"
             className="px-8 py-3.5 bg-primary text-white rounded-xl font-medium text-base hover:bg-primary-dark transition-colors shadow-lg shadow-primary/20"
           >
-            开始记单词
+            登录后开始
           </Link>
           <Link
             href="/wordbook"

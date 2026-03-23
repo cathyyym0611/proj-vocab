@@ -100,3 +100,12 @@ export interface GenerateRequest {
   style: StoryStyle;
   customPrompt?: string;
 }
+
+export type AuthSessionType = "guest" | "user";
+
+export interface ClientSession {
+  token?: string;
+  type: AuthSessionType;
+  email: string | null;
+  isAuthenticated: boolean;
+}

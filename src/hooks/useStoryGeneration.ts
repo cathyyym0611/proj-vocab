@@ -12,24 +12,21 @@ function ensureWordTable(content: string, words: WordEntry[]): string {
     return content;
   }
 
-  // Append a fallback table
-  const tableRows = words
+  const table = `
+
+---
+### 📖 单词释义
+| 单词 | 词性 | 音标 | 中文释义 | 英文释义 |
+|------|------|------|----------|----------|
+${words
     .map((w) => {
       const pos = w.partOfSpeech || "-";
       const en = w.meaningEn || "-";
       const zh = (w.meaningZh && w.meaningZh !== "待查询" && w.meaningZh !== "（请参考英文释义）")
         ? w.meaningZh : "-";
-      return `| ${w.word} | ${pos} | ${zh} | ${en} | - |`;
+      return `| ${w.word} | ${pos} | - | ${zh} | ${en} |`;
     })
-    .join("\n");
-
-  const table = `
-
----
-### 📖 单词释义
-| 单词 | 词性 | 中文释义 | 英文释义 | 音标 |
-|------|------|----------|----------|------|
-${tableRows}`;
+    .join("\n")}`;
 
   return content + table;
 }
