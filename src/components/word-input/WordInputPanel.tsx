@@ -1,6 +1,6 @@
 "use client";
 import { useState, useRef, useEffect, useCallback } from "react";
-import type { WordEntry, GREWord } from "@/types";
+import type { WordEntry } from "@/types";
 import { WordTag } from "./WordTag";
 
 interface Suggestion {
@@ -8,7 +8,6 @@ interface Suggestion {
   meaningEn: string;
   meaningZh: string;
   partOfSpeech?: string;
-  source?: "local" | "web"; // local = test vocab DB, web = Datamuse
 }
 
 interface WordInputPanelProps {
@@ -34,46 +33,22 @@ export function WordInputPanel({ words, onWordsChange }: WordInputPanelProps) {
     const results: Suggestion[] = [];
     const seen = new Set<string>();
 
-    // 1. Search local test vocab DB first (GRE/TOEFL/IELTS — prioritized)
-    try {
-      const res = await fetch(`/api/words?q=${encodeURIComponent(query)}&limit=5&searchAll=true`);
-      const data = await res.json();
-      for (const w of data.words as GREWord[]) {
-        const key = w.word.toLowerCase();
-        if (!seen.has(key)) {
-          seen.add(key);
-          results.push({
-            word: w.word,
-            meaningEn: w.meaningEn,
-            meaningZh: w.meaningZh,
-            partOfSpeech: w.partOfSpeech,
-            source: "local",
-          });
-        }
-      }
-    } catch {
-      // ignore
-    }
-
-    // 2. Supplement with Datamuse API (word frequency from web corpus)
-    if (results.length < 8 && query.length >= 2) {
+    // Use Datamuse only so suggestions follow normal word-frequency autocomplete.
+    if (query.length >= 2) {
       try {
         const res = await fetch(
-          `https://api.datamuse.com/sug?s=${encodeURIComponent(query)}&max=10`
+          `https://api.datamuse.com/sug?s=${encodeURIComponent(query)}&max=8`
         );
         const data: { word: string; score: number }[] = await res.json();
         for (const item of data) {
           const key = item.word.toLowerCase();
-          // Skip if already from local DB, or if it contains spaces (phrases)
           if (seen.has(key) || item.word.includes(" ")) continue;
-          // Only include single English words
           if (!/^[a-zA-Z]+$/.test(item.word)) continue;
           seen.add(key);
           results.push({
             word: item.word,
             meaningEn: "",
             meaningZh: "待查询",
-            source: "web",
           });
           if (results.length >= 8) break;
         }
@@ -178,7 +153,7 @@ export function WordInputPanel({ words, onWordsChange }: WordInputPanelProps) {
             >
               {suggestions.map((s, i) => (
                 <button
-                  key={`${s.word}-${s.source}`}
+                  key={s.word}
                   onMouseDown={(e) => {
                     e.preventDefault();
                     addWord({
@@ -197,11 +172,6 @@ export function WordInputPanel({ words, onWordsChange }: WordInputPanelProps) {
                     {s.partOfSpeech && (
                       <span className="text-xs text-muted">({s.partOfSpeech})</span>
                     )}
-                    {s.source === "local" && (
-                      <span className="text-[10px] px-1.5 py-0.5 bg-primary/10 text-primary rounded font-medium">
-                        考试词汇
-                      </span>
-                    )}
                   </div>
                   {s.meaningZh && s.meaningZh !== "待查询" && (
                     <span className="text-xs text-muted ml-2 truncate max-w-[120px]">{s.meaningZh}</span>
@@ -217,7 +187,7 @@ export function WordInputPanel({ words, onWordsChange }: WordInputPanelProps) {
       <p className="text-xs text-muted">
         {isFull
           ? "已达上限，删除已有单词后可继续添加。"
-          : "输入单词后按 Enter 添加，输入时会自动推荐高频考试词汇。每次最多 5 个单词。"}
+          : "输入单词后按 Enter 添加，输入时会按常见词频推荐完整单词。每次最多 5 个单词。"}
       </p>
     </div>
   );
