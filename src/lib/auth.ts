@@ -6,16 +6,13 @@ export const GUEST_COOKIE = "vocab_guest_id";
 export const GUEST_DAILY_LIMIT = 5;
 export const USER_DAILY_LIMIT = 10;
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
-const PASSWORD_HASH_ITERATIONS = 100000;
-
 type SessionType = "guest" | "user";
 
 export interface AuthUserRecord {
   id: string;
   email: string;
-  passwordHash: string;
-  passwordSalt: string;
   createdAt: number;
+  verifiedAt: number;
 }
 
 export interface AuthSessionRecord {
@@ -38,11 +35,20 @@ export interface AuthSession {
 interface MemoryStore {
   users: Map<string, AuthUserRecord>;
   sessions: Map<string, AuthSessionRecord>;
+  verificationCodes: Map<string, VerificationCodeRecord>;
+}
+
+interface VerificationCodeRecord {
+  email: string;
+  code: string;
+  expiresAt: number;
+  createdAt: number;
 }
 
 const memoryStore: MemoryStore = {
   users: new Map<string, AuthUserRecord>(),
   sessions: new Map<string, AuthSessionRecord>(),
+  verificationCodes: new Map<string, VerificationCodeRecord>(),
 };
 
 function now() {
@@ -57,43 +63,26 @@ function randomToken(bytes: number) {
   return Buffer.from(crypto.getRandomValues(new Uint8Array(bytes))).toString("hex");
 }
 
-async function derivePassword(password: string, saltHex: string): Promise<string> {
-  const keyMaterial = await crypto.subtle.importKey(
-    "raw",
-    new TextEncoder().encode(password),
-    "PBKDF2",
-    false,
-    ["deriveBits"]
-  );
-
-  const derivedBits = await crypto.subtle.deriveBits(
-    {
-      name: "PBKDF2",
-      salt: Buffer.from(saltHex, "hex"),
-      iterations: PASSWORD_HASH_ITERATIONS,
-      hash: "SHA-256",
-    },
-    keyMaterial,
-    256
-  );
-
-  return Buffer.from(derivedBits).toString("hex");
-}
-
-export async function hashPassword(password: string) {
-  const salt = randomToken(16);
-  const hash = await derivePassword(password, salt);
-  return { salt, hash };
-}
-
-export async function verifyPassword(password: string, salt: string, hash: string) {
-  const derived = await derivePassword(password, salt);
-  return derived === hash;
-}
-
-async function getUserByEmail(email: string): Promise<AuthUserRecord | null> {
-  const normalized = normalizeEmail(email);
+function getAuthRedisOrThrow() {
   const redis = getRedis();
+  if (!redis && process.env.NODE_ENV === "production") {
+    throw new Error("生产环境未配置 Redis，无法保存账号、验证码和登录会话。请先配置 Upstash Redis。");
+  }
+  return redis;
+}
+
+export function generateEmailCode() {
+  const value = crypto.getRandomValues(new Uint32Array(1))[0] % 1000000;
+  return value.toString().padStart(6, "0");
+}
+
+export function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+export async function getUserByEmail(email: string): Promise<AuthUserRecord | null> {
+  const normalized = normalizeEmail(email);
+  const redis = getAuthRedisOrThrow();
 
   if (redis) {
     const record = await redis.get<AuthUserRecord>(`auth:user:${normalized}`);
@@ -103,23 +92,19 @@ async function getUserByEmail(email: string): Promise<AuthUserRecord | null> {
   return memoryStore.users.get(normalized) ?? null;
 }
 
-export async function createUser(email: string, password: string): Promise<AuthUserRecord> {
+export async function createUser(email: string): Promise<AuthUserRecord> {
   const normalized = normalizeEmail(email);
   const existing = await getUserByEmail(normalized);
-  if (existing) {
-    throw new Error("该邮箱已注册，请直接登录");
-  }
+  if (existing) return existing;
 
-  const { salt, hash } = await hashPassword(password);
   const user: AuthUserRecord = {
     id: randomToken(12),
     email: normalized,
-    passwordHash: hash,
-    passwordSalt: salt,
     createdAt: now(),
+    verifiedAt: now(),
   };
 
-  const redis = getRedis();
+  const redis = getAuthRedisOrThrow();
   if (redis) {
     await redis.set(`auth:user:${normalized}`, user);
   } else {
@@ -129,17 +114,56 @@ export async function createUser(email: string, password: string): Promise<AuthU
   return user;
 }
 
-export async function authenticateUser(email: string, password: string) {
+export async function sendVerificationCode(email: string) {
   const normalized = normalizeEmail(email);
-  const user = await getUserByEmail(normalized);
-  if (!user) return null;
+  const code = generateEmailCode();
+  const record: VerificationCodeRecord = {
+    email: normalized,
+    code,
+    createdAt: now(),
+    expiresAt: now() + 10 * 60 * 1000,
+  };
 
-  const ok = await verifyPassword(password, user.passwordSalt, user.passwordHash);
-  return ok ? user : null;
+  const redis = getAuthRedisOrThrow();
+  if (redis) {
+    await redis.set(`auth:code:${normalized}`, record, { ex: 10 * 60 });
+  } else {
+    memoryStore.verificationCodes.set(normalized, record);
+  }
+
+  return record;
+}
+
+export async function verifyEmailCode(email: string, code: string) {
+  const normalized = normalizeEmail(email);
+  const redis = getAuthRedisOrThrow();
+  const record = redis
+    ? await redis.get<VerificationCodeRecord>(`auth:code:${normalized}`)
+    : (memoryStore.verificationCodes.get(normalized) ?? null);
+
+  if (!record) {
+    throw new Error("验证码不存在或已过期，请重新获取");
+  }
+
+  if (record.expiresAt < now()) {
+    throw new Error("验证码已过期，请重新获取");
+  }
+
+  if (record.code !== code.trim()) {
+    throw new Error("验证码不正确");
+  }
+
+  if (redis) {
+    await redis.del(`auth:code:${normalized}`);
+  } else {
+    memoryStore.verificationCodes.delete(normalized);
+  }
+
+  return true;
 }
 
 async function saveSession(record: AuthSessionRecord) {
-  const redis = getRedis();
+  const redis = getAuthRedisOrThrow();
   if (redis) {
     await redis.set(`auth:session:${record.token}`, record, {
       ex: SESSION_TTL_SECONDS,
@@ -150,7 +174,7 @@ async function saveSession(record: AuthSessionRecord) {
 }
 
 async function getSessionRecord(token: string): Promise<AuthSessionRecord | null> {
-  const redis = getRedis();
+  const redis = getAuthRedisOrThrow();
   if (redis) {
     const record = await redis.get<AuthSessionRecord>(`auth:session:${token}`);
     return record ?? null;
@@ -160,7 +184,7 @@ async function getSessionRecord(token: string): Promise<AuthSessionRecord | null
 }
 
 async function deleteSessionRecord(token: string) {
-  const redis = getRedis();
+  const redis = getAuthRedisOrThrow();
   if (redis) {
     await redis.del(`auth:session:${token}`);
     return;
