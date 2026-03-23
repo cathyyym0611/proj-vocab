@@ -13,9 +13,14 @@ function getClientIP(headersList: Headers): string {
 }
 
 export async function GET() {
-  const headersList = await headers();
-  const ip = getClientIP(headersList);
-  const { remaining, limit } = await getRemainingCount(ip);
+  try {
+    const headersList = await headers();
+    const ip = getClientIP(headersList);
+    const { remaining, limit } = await getRemainingCount(ip);
 
-  return Response.json({ remaining, limit });
+    return Response.json({ remaining, limit });
+  } catch (error) {
+    console.error("[limit] failed to fetch remaining count, using fallback:", error);
+    return Response.json({ remaining: 10, limit: 10 });
+  }
 }

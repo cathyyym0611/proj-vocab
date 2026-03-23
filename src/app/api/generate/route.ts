@@ -50,99 +50,114 @@ function friendlyError(error: unknown): string {
 }
 
 export async function POST(request: Request) {
-  if (!process.env.OPENAI_API_KEY) {
+  try {
+    if (!process.env.OPENAI_API_KEY) {
+      return new Response(
+        JSON.stringify({
+          error:
+            "未配置 OPENAI_API_KEY。请在项目根目录 .env.local 文件中添加你的 API Key。获取地址：https://platform.openai.com/api-keys",
+        }),
+        { status: 500, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    const headersList = await headers();
+    const ip = getClientIP(headersList);
+
+    let allowed = true;
+    let remaining = 10;
+    try {
+      const rateLimitResult = await consumeRateLimit(ip);
+      allowed = rateLimitResult.allowed;
+      remaining = rateLimitResult.remaining;
+    } catch (error) {
+      console.error("[generate] rate limit check failed, falling back:", error);
+    }
+
+    if (!allowed) {
+      return new Response(
+        JSON.stringify({
+          error: "今日生成次数已用完，请明天再来！先去复习已有的故事吧，间隔复习效果更好哦 ✨",
+          remaining: 0,
+        }),
+        { status: 429, headers: { "Content-Type": "application/json" } }
+      );
+    }
+
+    let body: GenerateRequest;
+    try {
+      body = await request.json();
+    } catch {
+      return new Response(JSON.stringify({ error: "请求格式错误" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const { words, style, customPrompt } = body;
+
+    if (!words || words.length === 0) {
+      return new Response(JSON.stringify({ error: "请至少提供一个单词" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    const { system, user } = buildPrompt(words, style, customPrompt);
+
+    const encoder = new TextEncoder();
+
+    const readableStream = new ReadableStream({
+      async start(controller) {
+        try {
+          const stream = await client.chat.completions.create({
+            model: "gpt-4o-mini",
+            stream: true,
+            messages: [
+              { role: "system", content: system },
+              { role: "user", content: user },
+            ],
+            max_tokens: 800,
+            temperature: 0.9,
+          });
+
+          for await (const chunk of stream) {
+            const text = chunk.choices[0]?.delta?.content;
+            if (text) {
+              controller.enqueue(
+                encoder.encode(`data: ${JSON.stringify({ text })}\n\n`)
+              );
+            }
+          }
+
+          controller.enqueue(
+            encoder.encode(`data: ${JSON.stringify({ remaining })}\n\n`)
+          );
+          controller.enqueue(encoder.encode("data: [DONE]\n\n"));
+          controller.close();
+        } catch (error) {
+          console.error("[generate] OpenAI API error:", error);
+          const message = friendlyError(error);
+          controller.enqueue(
+            encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`)
+          );
+          controller.close();
+        }
+      }
+    });
+
+    return new Response(readableStream, {
+      headers: {
+        "Content-Type": "text/event-stream",
+        "Cache-Control": "no-cache",
+        Connection: "keep-alive",
+      },
+    });
+  } catch (error) {
+    console.error("[generate] unexpected route error:", error);
     return new Response(
-      JSON.stringify({
-        error:
-          "未配置 OPENAI_API_KEY。请在项目根目录 .env.local 文件中添加你的 API Key。获取地址：https://platform.openai.com/api-keys",
-      }),
+      JSON.stringify({ error: friendlyError(error) }),
       { status: 500, headers: { "Content-Type": "application/json" } }
     );
   }
-
-  // Server-side rate limiting by IP
-  const headersList = await headers();
-  const ip = getClientIP(headersList);
-  const { allowed, remaining } = await consumeRateLimit(ip);
-
-  if (!allowed) {
-    return new Response(
-      JSON.stringify({
-        error: "今日生成次数已用完，请明天再来！先去复习已有的故事吧，间隔复习效果更好哦 ✨",
-        remaining: 0,
-      }),
-      { status: 429, headers: { "Content-Type": "application/json" } }
-    );
-  }
-
-  let body: GenerateRequest;
-  try {
-    body = await request.json();
-  } catch {
-    return new Response(JSON.stringify({ error: "请求格式错误" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  const { words, style, customPrompt } = body;
-
-  if (!words || words.length === 0) {
-    return new Response(JSON.stringify({ error: "请至少提供一个单词" }), {
-      status: 400,
-      headers: { "Content-Type": "application/json" },
-    });
-  }
-
-  const { system, user } = buildPrompt(words, style, customPrompt);
-
-  const encoder = new TextEncoder();
-
-  const readableStream = new ReadableStream({
-    async start(controller) {
-      try {
-        const stream = await client.chat.completions.create({
-          model: "gpt-4o-mini",
-          stream: true,
-          messages: [
-            { role: "system", content: system },
-            { role: "user", content: user },
-          ],
-          max_tokens: 800,
-          temperature: 0.9,
-        });
-
-        for await (const chunk of stream) {
-          const text = chunk.choices[0]?.delta?.content;
-          if (text) {
-            controller.enqueue(
-              encoder.encode(`data: ${JSON.stringify({ text })}\n\n`)
-            );
-          }
-        }
-
-        // Send remaining count with DONE signal
-        controller.enqueue(
-          encoder.encode(`data: ${JSON.stringify({ remaining })}\n\n`)
-        );
-        controller.enqueue(encoder.encode("data: [DONE]\n\n"));
-        controller.close();
-      } catch (error) {
-        console.error("[generate] OpenAI API error:", error);
-        const message = friendlyError(error);
-        controller.enqueue(
-          encoder.encode(`data: ${JSON.stringify({ error: message })}\n\n`)
-        );
-        controller.close();
-      }
-    },
-  });
-
-  return new Response(readableStream, {
-    headers: {
-      "Content-Type": "text/event-stream",
-      "Cache-Control": "no-cache",
-      Connection: "keep-alive",
-    },
-  });
 }

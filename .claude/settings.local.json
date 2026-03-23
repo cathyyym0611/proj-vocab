@@ -29,7 +29,10 @@
       "Bash(git commit:*)",
       "WebFetch(domain:proj-vocab.vercel.app)",
       "WebFetch(domain:github.com)",
-      "WebFetch(domain:proj-vocab-cathyyms-projects.vercel.app)"
+      "WebFetch(domain:proj-vocab-cathyyms-projects.vercel.app)",
+      "WebFetch(domain:vocabstory.cc)",
+      "Bash(dig vocabstory.cc +short)",
+      "Bash(nslookup vocabstory.cc)"
     ]
   }
 }
