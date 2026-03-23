@@ -55,7 +55,7 @@ export async function POST(request: Request) {
       return new Response(
         JSON.stringify({
           error:
-            "未配置 OPENAI_API_KEY。请在项目根目录 .env.local 文件中添加你的 API Key。获取地址：https://platform.openai.com/api-keys",
+            "未配置 OPENAI_API_KEY。本地开发请写入项目根目录 .env.local；如果部署在 Cloudflare，请在 Worker 的 Variables/Secrets 中配置该变量后重新部署。获取地址：https://platform.openai.com/api-keys",
         }),
         { status: 500, headers: { "Content-Type": "application/json" } }
       );
