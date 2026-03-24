@@ -127,7 +127,7 @@ function MatchGame({ words, onFinish }: { words: WordEntry[]; onFinish: () => vo
                 key={w.word}
                 onClick={() => handleMeaningClick(w)}
                 disabled={isMatched || !selectedWord}
-                className={`w-full py-3 px-4 rounded-xl text-sm transition-all text-left ${
+                className={`w-full py-3 px-4 rounded-xl text-sm transition-all text-center ${
                   isMatched
                     ? "bg-green-100 text-green-700 border border-green-200 opacity-60"
                     : selectedWord
