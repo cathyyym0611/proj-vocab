@@ -81,7 +81,7 @@ function AuthContent() {
           </Link>
           <h1 className="text-2xl font-bold">{title}</h1>
           <p className="text-sm text-muted">
-            输入邮箱后获取验证码。首次验证会自动注册账号，之后同一邮箱可直接登录。注册账号每天可生成 10 次故事，游客每天可体验 5 次。
+            输入邮箱即可注册或登录。首次验证会自动创建账号；已注册邮箱在当前设备 30 天内可直接登录。注册账号每天可生成 10 次故事，游客每天可体验 5 次。
           </p>
         </div>
 
@@ -129,7 +129,7 @@ function AuthContent() {
             disabled={submitting}
             className="w-full rounded-xl bg-primary py-3 text-sm font-medium text-white transition-colors hover:bg-primary-dark disabled:opacity-60"
           >
-            {submitting ? "提交中..." : codeSent ? "验证并登录" : "发送验证码"}
+            {submitting ? "提交中..." : codeSent ? "验证并登录" : "注册/登录"}
           </button>
 
           {codeSent && (
