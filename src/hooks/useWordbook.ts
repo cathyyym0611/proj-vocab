@@ -1,6 +1,7 @@
 "use client";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "@/lib/db";
+import { mergeWordsWithGlossary } from "@/lib/story-glossary";
 import type { Story, Wordbook, WordEntry, StoryStyle } from "@/types";
 
 export function useWordbook() {
@@ -33,11 +34,12 @@ export function useWordbook() {
     words: WordEntry[],
     wordbookId?: number
   ) {
+    const enrichedWords = mergeWordsWithGlossary(words, content);
     const storyId = await db.stories.add({
       title,
       content,
       style,
-      words,
+      words: enrichedWords,
       createdAt: Date.now(),
       wordbookId,
       isFavorite: false,

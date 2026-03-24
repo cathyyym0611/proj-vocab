@@ -2,6 +2,7 @@
 import { useState, useMemo } from "react";
 import { useWordbook } from "@/hooks/useWordbook";
 import { StoryDisplay } from "@/components/story/StoryDisplay";
+import { mergeWordsWithGlossary } from "@/lib/story-glossary";
 import { STORY_STYLES } from "@/types";
 import type { WordEntry, Story } from "@/types";
 import Link from "next/link";
@@ -249,17 +250,26 @@ export default function ReviewPage() {
   const [viewMode, setViewMode] = useState<ViewMode>("stories");
   const [page, setPage] = useState(1);
 
-  const totalPages = Math.ceil(stories.length / STORIES_PER_PAGE);
+  const hydratedStories = useMemo(
+    () =>
+      stories.map((story) => ({
+        ...story,
+        words: mergeWordsWithGlossary(story.words, story.content),
+      })),
+    [stories]
+  );
+
+  const totalPages = Math.ceil(hydratedStories.length / STORIES_PER_PAGE);
   const pagedStories = useMemo(() => {
     const start = (page - 1) * STORIES_PER_PAGE;
-    return stories.slice(start, start + STORIES_PER_PAGE);
-  }, [stories, page]);
+    return hydratedStories.slice(start, start + STORIES_PER_PAGE);
+  }, [hydratedStories, page]);
 
   // Collect all unique words
   const allWords = useMemo(() => {
     const seen = new Set<string>();
     const result: WordEntry[] = [];
-    for (const story of stories) {
+    for (const story of hydratedStories) {
       for (const w of story.words) {
         const key = w.word.toLowerCase();
         if (!seen.has(key)) {
@@ -269,9 +279,9 @@ export default function ReviewPage() {
       }
     }
     return result;
-  }, [stories]);
+  }, [hydratedStories]);
 
-  if (stories.length === 0) {
+  if (hydratedStories.length === 0) {
     return (
       <div className="text-center py-16">
         <p className="text-4xl mb-3">🔄</p>
@@ -329,7 +339,7 @@ export default function ReviewPage() {
       ) : (
         <div className="space-y-4">
           <p className="text-sm text-muted">
-            共 {stories.length} 个故事
+            共 {hydratedStories.length} 个故事
             {totalPages > 1 && `，第 ${page}/${totalPages} 页`}
           </p>
 
