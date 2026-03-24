@@ -4,6 +4,7 @@ import { getRedis } from "@/lib/redis";
 
 export const SESSION_COOKIE = "vocab_session";
 export const GUEST_COOKIE = "vocab_guest_id";
+export const TRUSTED_LOGIN_COOKIE = "vocab_trusted_login";
 export const GUEST_DAILY_LIMIT = 5;
 export const USER_DAILY_LIMIT = 10;
 const SESSION_TTL_SECONDS = 60 * 60 * 24 * 30;
@@ -37,6 +38,7 @@ interface MemoryStore {
   users: Map<string, AuthUserRecord>;
   sessions: Map<string, AuthSessionRecord>;
   verificationCodes: Map<string, VerificationCodeRecord>;
+  trustedLogins: Map<string, TrustedLoginRecord>;
 }
 
 interface VerificationCodeRecord {
@@ -46,10 +48,17 @@ interface VerificationCodeRecord {
   createdAt: number;
 }
 
+interface TrustedLoginRecord {
+  token: string;
+  email: string;
+  createdAt: number;
+}
+
 const memoryStore: MemoryStore = {
   users: new Map<string, AuthUserRecord>(),
   sessions: new Map<string, AuthSessionRecord>(),
   verificationCodes: new Map<string, VerificationCodeRecord>(),
+  trustedLogins: new Map<string, TrustedLoginRecord>(),
 };
 
 function now() {
@@ -162,6 +171,53 @@ export async function verifyEmailCode(email: string, code: string) {
   }
 
   return true;
+}
+
+async function saveTrustedLogin(record: TrustedLoginRecord) {
+  const redis = await getAuthRedisOrThrow();
+  if (redis) {
+    await redis.set(`auth:trusted:${record.token}`, record, {
+      ex: SESSION_TTL_SECONDS,
+    });
+    return;
+  }
+  memoryStore.trustedLogins.set(record.token, record);
+}
+
+async function getTrustedLoginRecord(token: string): Promise<TrustedLoginRecord | null> {
+  const redis = await getAuthRedisOrThrow();
+  if (redis) {
+    const record = await redis.get<TrustedLoginRecord>(`auth:trusted:${token}`);
+    return record ?? null;
+  }
+  return memoryStore.trustedLogins.get(token) ?? null;
+}
+
+export async function getTrustedEmailForCurrentDevice() {
+  const cookieStore = await cookies();
+  const token = cookieStore.get(TRUSTED_LOGIN_COOKIE)?.value;
+  if (!token) return null;
+
+  const record = await getTrustedLoginRecord(token);
+  return record?.email ?? null;
+}
+
+export async function setTrustedLoginCookie(email: string) {
+  const cookieStore = await cookies();
+  const token = randomToken(24);
+  await saveTrustedLogin({
+    token,
+    email: normalizeEmail(email),
+    createdAt: now(),
+  });
+
+  cookieStore.set(TRUSTED_LOGIN_COOKIE, token, {
+    httpOnly: true,
+    sameSite: "lax",
+    secure: isProductionRuntime(),
+    path: "/",
+    maxAge: SESSION_TTL_SECONDS,
+  });
 }
 
 async function saveSession(record: AuthSessionRecord) {

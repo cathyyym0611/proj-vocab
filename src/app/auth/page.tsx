@@ -26,6 +26,12 @@ function AuthContent() {
     setMessage(null);
     try {
       const result = await sendCode(email);
+      if (result.session) {
+        setMessage(result.message ?? "已为你自动登录。");
+        router.push("/generate");
+        router.refresh();
+        return;
+      }
       setCodeSent(true);
       setDevCode(result.debugCode ?? null);
       setMessage(result.message ?? "验证码已发送，请查收邮箱。");

@@ -10,6 +10,7 @@ interface SendCodePayload {
   ok: boolean;
   message?: string;
   debugCode?: string;
+  session?: ClientSession | null;
 }
 
 async function postAuth(url: string, body?: Record<string, string>) {
@@ -59,7 +60,11 @@ export function useAuth() {
   }, [refresh]);
 
   const sendCode = useCallback(async (email: string) => {
-    return await postJson<SendCodePayload>("/api/auth/send-code", { email });
+    const data = await postJson<SendCodePayload>("/api/auth/send-code", { email });
+    if (data.session) {
+      setSession(data.session);
+    }
+    return data;
   }, []);
 
   const verifyCode = useCallback(async (email: string, code: string) => {

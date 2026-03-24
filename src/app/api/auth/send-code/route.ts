@@ -1,4 +1,11 @@
-import { isValidEmail, sendVerificationCode } from "@/lib/auth";
+import {
+  createSession,
+  getTrustedEmailForCurrentDevice,
+  getUserByEmail,
+  isValidEmail,
+  sendVerificationCode,
+  setSessionCookie,
+} from "@/lib/auth";
 import { sendCodeEmail } from "@/lib/email";
 
 export async function POST(request: Request) {
@@ -14,11 +21,35 @@ export async function POST(request: Request) {
       return Response.json({ error: "邮箱格式不正确" }, { status: 400 });
     }
 
+    const normalizedEmail = email.trim().toLowerCase();
+    const trustedEmail = await getTrustedEmailForCurrentDevice();
+    const existingUser = await getUserByEmail(normalizedEmail);
+
+    if (trustedEmail && trustedEmail === normalizedEmail && existingUser) {
+      const session = await createSession({
+        type: "user",
+        userId: existingUser.id,
+        email: existingUser.email,
+      });
+      await setSessionCookie(session.token);
+
+      return Response.json({
+        ok: true,
+        session: {
+          type: "user",
+          email: existingUser.email,
+          isAuthenticated: true,
+        },
+        message: "该设备 30 天内免登录，已直接为你登录。",
+      });
+    }
+
     const record = await sendVerificationCode(email);
     const result = await sendCodeEmail({ email, code: record.code });
 
     return Response.json({
       ok: true,
+      session: null,
       debugCode: result.delivered ? undefined : result.debugCode,
       message: result.delivered
         ? "验证码已发送，请查收邮箱。"

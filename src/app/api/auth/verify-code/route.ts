@@ -3,6 +3,7 @@ import {
   createUser,
   getUserByEmail,
   setSessionCookie,
+  setTrustedLoginCookie,
   verifyEmailCode,
 } from "@/lib/auth";
 
@@ -27,6 +28,7 @@ export async function POST(request: Request) {
       email: user.email,
     });
     await setSessionCookie(session.token);
+    await setTrustedLoginCookie(user.email);
 
     return Response.json({
       session: {
