@@ -2,6 +2,46 @@
 import { useState, useCallback } from "react";
 import type { WordEntry, StoryStyle } from "@/types";
 
+function escapeRegExp(value: string): string {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function normalizeStoryAnnotations(content: string, words: WordEntry[]): string {
+  let normalized = content;
+
+  for (const { word, meaningZh } of words) {
+    const escapedWord = escapeRegExp(word);
+    const fallbackMeaning =
+      meaningZh && meaningZh !== "待查询" && meaningZh !== "（请参考英文释义）"
+        ? meaningZh
+        : "";
+
+    const pairedPatterns = [
+      new RegExp(`[（(\\[【]${escapedWord}[）)\\]】]\\s*[【\\[]([^\\]】]+)[】\\]]`, "gi"),
+      new RegExp(`[（(\\[【]${escapedWord}[）)\\]】]\\s*[（(]([^）)]+)[）)]`, "gi"),
+      new RegExp(`[【\\[]${escapedWord}[】\\]]\\s*[【\\[]([^\\]】]+)[】\\]]`, "gi"),
+    ];
+
+    for (const pattern of pairedPatterns) {
+      normalized = normalized.replace(pattern, (_match, capturedMeaning: string) => {
+        const meaning = capturedMeaning?.trim() || fallbackMeaning;
+        return meaning ? `${word}【${meaning}】` : word;
+      });
+    }
+
+    normalized = normalized.replace(
+      new RegExp(`${escapedWord}\\s*\\[([^\\]]+)\\]`, "gi"),
+      (_match, capturedMeaning: string) => `${word}【${capturedMeaning.trim()}】`
+    );
+    normalized = normalized.replace(
+      new RegExp(`${escapedWord}\\s*[（(]([^）)]+)[）)]`, "gi"),
+      (_match, capturedMeaning: string) => `${word}【${capturedMeaning.trim()}】`
+    );
+  }
+
+  return normalized;
+}
+
 /**
  * If the AI failed to include a word definition table,
  * programmatically append one using the input words.
@@ -104,8 +144,8 @@ export function useStoryGeneration() {
           }
         }
 
-        // After streaming completes, ensure table exists
-        const finalContent = ensureWordTable(fullContent, words);
+        const normalizedContent = normalizeStoryAnnotations(fullContent, words);
+        const finalContent = ensureWordTable(normalizedContent, words);
         if (finalContent !== fullContent) {
           setStory(finalContent);
         }

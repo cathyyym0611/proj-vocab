@@ -178,8 +178,8 @@ function parseInlineContent(
   lineIdx: number,
   interactive: boolean
 ): React.ReactNode[] {
-  // Match: word【meaning】 and **bold**
-  const regex = /([a-zA-Z]+)【([^】]+)】|\*\*([^*]+)\*\*/g;
+  // Match common word-annotation formats and **bold**
+  const regex = /([a-zA-Z]+)(?:【([^】]+)】|\[([^\]]+)\]|（([^）]+)）|\(([^)]+)\))|\*\*([^*]+)\*\*/g;
   const nodes: React.ReactNode[] = [];
   let lastIndex = 0;
   let match: RegExpExecArray | null;
@@ -189,14 +189,19 @@ function parseInlineContent(
       nodes.push(text.slice(lastIndex, match.index));
     }
 
-    if (match[1] && match[2]) {
+    if (match[1]) {
+      const meaning = match[2] || match[3] || match[4] || match[5];
+      if (!meaning) {
+        lastIndex = regex.lastIndex;
+        continue;
+      }
       if (interactive) {
         // Interactive mode: click to reveal meaning
         nodes.push(
           <InteractiveWord
             key={`iw-${lineIdx}-${match.index}`}
             word={match[1]}
-            meaning={match[2]}
+            meaning={meaning}
           />
         );
       } else {
@@ -205,14 +210,14 @@ function parseInlineContent(
           <WordAnnotation
             key={`w-${lineIdx}-${match.index}`}
             word={match[1]}
-            meaning={match[2]}
+            meaning={meaning}
           />
         );
       }
-    } else if (match[3]) {
+    } else if (match[6]) {
       nodes.push(
         <strong key={`b-${lineIdx}-${match.index}`} className="font-bold">
-          {match[3]}
+          {match[6]}
         </strong>
       );
     }
